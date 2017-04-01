@@ -1,0 +1,50 @@
+html,body {
+    height: 100%;
+}
+
+#vispod {
+    position: relative;
+    height: 80%;
+    min-height: 200px;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    border-right: 2px solid #333333;
+    background-color: #ffffff;
+    overflow: auto;
+}
+
+#content {
+    position: relative;
+    margin: 0;
+    padding: 0; 
+    min-height: 600px;
+    background-color: #aeffef;
+    overflow: auto;
+}
+
+#playbutton {
+    display: inline-block;
+    margin: 10px;
+    padding: 0;
+    height: 30px;
+    width: 400px;
+    background-color: #ffa87d;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.playpause {
+    max-width: 70%;
+    max-height: 100%;
+    float: left;
+}
+.words{
+    text-align: left;
+    line-height: 0px;
+}
+
+
