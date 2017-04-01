@@ -1,0 +1,563 @@
+/* About Us
+-------------------------------------------------- */
+
+.about_page .section_header {
+    margin-top: 55px;
+}
+.about_page h3.intro {
+    color: #282F39;
+    text-align: center;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 32px;
+    width: 83%;
+    margin: 0 auto;
+    margin-bottom: 70px;
+}
+.about_page .section_header.team {
+    margin-top: 90px;
+}
+.about_page .teammate {
+    margin-bottom: 50px;
+}
+.about_page .teammate img {
+    margin-bottom: 10px;
+}
+.about_page .teammate h5 {
+    margin-bottom: 2px;
+}
+.about_page .teammate hr {
+    border-top: 1px solid #BDBFC2;
+    border-bottom: 2px solid white;
+}
+.about_page .teammate p.description { 
+    font-size: 15px;
+    color: #57595C;
+    width: 80%;
+}
+.about_page .teammate .social {
+    margin-top: 15px;
+}
+.about_page .teammate .social a,
+.about_page .teammate .social a:hover {
+    text-decoration: none
+}
+.about_page .teammate .social a:hover {
+    opacity: 0.7;
+}
+.about_page .teammate .social i {
+    margin-right: 5px;
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 980px) {
+    .about_page .teammate > * {
+        margin-left: 25px;
+    }
+}
+.blog-abstract{
+    margin-top: 0.5rem;
+    font-size: 19px;
+    font-weight: 300;
+    color: #222;
+    line-height: 1.5;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+}
+.blog-text{
+    margin-top: 0.5rem;
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.blog-title{
+    color:#303030;
+    font-weight: 400;
+}
+.blog-date{
+    color:#9a9a9a;
+}
+
+/* Coming Soon
+-------------------------------------------------- */
+#comingsoon {
+    margin-top: 130px;
+}
+#comingsoon .countdown {
+    padding-bottom: 120px;
+    border-bottom: 1px solid #C0C2C5;
+    box-shadow: 0px 2px 1px 0px #fff;
+}
+#comingsoon .countdown .left h1 {
+    margin-top: 0px;
+}
+#comingsoon .countdown .left p {
+    margin-top: 20px;
+    line-height: 25px;
+    color: #555;
+    font-size: 17px;
+}
+#comingsoon .countdown .figure {
+    float: left;
+    margin-right: 15px;
+}
+#comingsoon .countdown .figure .square {
+    width: 88px;
+    height: 88px;
+    border-radius: 6px;
+    border: 1px solid #93C762;
+    position: relative;
+    box-shadow: 0px 0px 6px -1px #93C762;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #fff 47%, #f4f4f4 48%, #f4f4f4 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#fff), color-stop(48%,#f4f4f4), color-stop(100%,#f4f4f4)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#fff 47%,#f4f4f4 48%,#f4f4f4 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#fff 47%,#f4f4f4 48%,#f4f4f4 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#fff 47%,#f4f4f4 48%,#f4f4f4 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#fff 47%,#f4f4f4 48%,#f4f4f4 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f4f4f4',GradientType=0 ); /* IE6-9 */
+}
+#comingsoon .countdown .figure .square span {
+    color: #394350;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 33px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+#comingsoon .countdown .figure label {
+    color: #7A7D80;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+}
+#comingsoon .subscribe {
+    margin-bottom: 80px;
+}
+#comingsoon .subscribe form {
+    text-align: center;
+    margin-top: 40px;
+}
+#comingsoon .subscribe form button {
+    position: relative;
+    top: -5px;
+    margin-left: 10px;
+    font-weight: bold;  
+}
+#comingsoon .subscribe .follow {
+    text-align: center;
+    margin-top: 40px;
+}
+#comingsoon .subscribe .follow strong {
+    font-size: 21px;
+    margin-right: 18px;
+}
+#comingsoon .subscribe .follow a,
+#comingsoon .subscribe .follow a:hover {
+    text-decoration: none;
+}
+#comingsoon .subscribe .follow a:hover {
+    opacity: 0.8;
+}
+#comingsoon .subscribe .follow i {
+    position: relative;
+    top: 7px;
+    margin: 0px 2px;
+}
+#footer.coming-soon {
+    min-height: 60px;
+}
+
+/* Contact Us
+-------------------------------------------------- */
+#contact .section_header {
+    margin-top: 55px;
+}
+#contact .gmaps {
+    width: 100%;
+    height: 350px;
+    border: 3px solid #fff;
+    border-radius: 6px;
+    box-shadow: 0px 0px 1px 1px #CFCFCF;
+}
+#contact .map h3 {
+    margin: 40px 0px 30px 20px;
+    color: #394350;
+    font-size: 17px;
+    line-height: 30px;
+    font-weight: normal;
+}
+#contact .form {
+    margin-top: 30px;
+}
+#contact form {
+    margin-left: 20px;
+}
+#contact form label {
+    text-align: left;
+    width: 100px;
+    font-weight: bold;
+}
+#contact .address h3 {
+    margin-top: -5px;
+}
+#contact .info {
+    position: relative;
+    margin: 25px 0px;
+    font-weight: bold;
+}
+#contact .info i {
+    float: left;
+    top: -8px;
+    position: relative;
+    margin-right: 20px;
+}
+#contact i.contact {
+    background: url('../img/layout/contact_icons.png') no-repeat 0 0;
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+}
+#contact i.phone { background-position: 0px 0px; }
+#contact i.email { background-position: 0 -47px; }
+
+#contact .form hr {
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 2px solid white;
+    width: 70%;
+    margin-top: 45px;
+}
+#contact .social a, 
+#contact .social a:hover {
+    text-decoration: none;
+}
+#contact .social a:hover {
+    opacity: 0.7;
+}
+#contact i.social {
+    margin: 10px 5px 7px 0px;
+}
+@media (min-width: 767px) {
+    #contact form.form-horizontal .controls {
+        margin-left: 90px;
+    }
+}
+@media (max-width: 979px) {
+    .features_page h3.intro {
+        font-size: 17px;
+        line-height: 20px;
+    }
+}
+@media (min-width: 980px) {
+    #contact form .controls.action button[type="submit"] {
+        margin-left: 10px;
+    }
+}
+
+
+/* FAQ
+-------------------------------------------------- */
+#faq {
+    margin-bottom: 150px;
+}
+#faq .section_header {
+    margin-top: 55px;
+}
+#faq .faq {
+    padding-left: 50px;
+    position: relative;
+    margin-bottom: 30px;
+}
+#faq .faq:hover .number {
+    background-color: #7fa662;
+    color: #fff;
+}
+#faq .faq:hover .question {
+    color: #7fa662;
+}
+#faq .faq .number {
+    background-color: white;
+    border-radius: 20px;
+    color: #394350;
+    position: absolute;
+    left: 0px;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 17px;
+    top: -5px;
+    transition: background-color 0.3s linear;
+    -moz-transition: background-color 0.3s linear;
+    -webkit-transition: background-color 0.3s linear;
+    -o-transition: background-color 0.3s linear;
+}
+#faq .faq .question {
+    color: #2c3339;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    transition: color 0.2s linear;
+    -moz-transition: color 0.2s linear;
+    -webkit-transition: color 0.2s linear;
+    -o-transition: color 0.2s linear;
+}
+#faq .faq .answer {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    font-size: 15px;
+    border-bottom: 1px solid #BEC0C3;
+    padding-bottom: 35px;
+    box-shadow: 0px 1px 1px 0px white;
+    display: none;
+}
+
+
+/* Features
+-------------------------------------------------- */
+.features_page .section_header {
+    margin-top: 55px;
+    margin-bottom: 10px;
+}
+.features_page .section_header_no_intro {
+    margin-bottom: 40px !important;
+}
+.features_page h3.intro {
+    color: #282F39;
+    text-align: center;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 32px;
+    width: 83%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+.features_page .profile {
+    text-align: left;
+}
+/* "About Me", etc. section headings */
+.features_page .profile .section_header{
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 800;
+    text-rendering: optimizelegibility;
+}
+/* "About Me", etc. section text */
+.features_page .profile h3.intro {
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 40px;
+    width: 100%;
+    font-size: 20px;
+}
+.features_page .projects {
+    text-align: left;
+}
+/* Projects page section headings */
+.features_page .projects .section_header{
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 800;
+    text-rendering: optimizelegibility;
+}
+/* Projects page section text */
+.features_page .projects h3.intro {
+    text-align: left;
+    margin-top: 0px;
+    margin-left: 30px;
+    margin-right: 0px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+.features_page .projects .intro span {
+    width: auto;
+    display: inline;
+}
+/* RÃ©sumÃ© line */
+.features_page .resume_line {
+    font-size: 16px !important;
+    margin-top: 10px !important;
+    margin-left: 0px !important;
+}
+/* profile pic */
+.features_page .profile .thumb {
+    margin-left:9px !important;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 7px !important;
+}
+/* contact info under profile pic */
+.features_page .profile span {
+    margin-top: 4px;
+    margin-left: 9px;
+    font-size: 18px;
+    font-weight: 400;
+    width: 100%;
+    clear: both;
+}
+.features_page .profile span.heading {
+    font-weight: 800;
+    margin-top: 25px;
+}
+/* The project names in the project listing */
+.features_page .feature h3 {
+    margin-top: 10px !important;
+    margin-bottom: 2px !important;
+}
+/* The "research", "professional", etc. icons next to each project name in the project listing */
+.features_page img.project_type {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+}
+/* project type legend items on project page */
+.features_page h3 span {
+    margin-right: 40px !important;
+}
+.features_page .project_row {
+    margin-top: 40px;
+}
+
+.features_page .project_summary .section_header span {
+    width: 100%;
+}
+
+.features_page .features2 {
+    margin-top: 70px;
+}
+.features_page .feature2 {
+    margin-bottom: 50px;
+    position: relative;
+}
+.features_page .feature2 .icon {
+    width: 65px;
+    height: 65px;
+    background-color: white;
+    border-radius: 100px;
+    position: absolute; 
+    box-shadow: 0px 0px 0px 1px #bcbcbc;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -ms-transition: all .1s linear;
+    -o-transition: all .1s linear;
+    transition: all .1s linear; 
+}
+.features_page .feature2 .icon i {
+    background: url('../img/layout/features_icons.png') no-repeat;
+    display: block;
+    position: relative;
+}
+#features .feature2 a:hover h4 {
+    color: #005580 !important;
+}
+#features .feature2 a:hover .icon {
+    box-shadow: 0px 0px 7px 1px #005580;
+}
+#features .feature2 .icon:hover {
+    box-shadow: 0px 0px 7px 1px #005580/*#8cbe5b*/;
+}
+.features_page .feature2 i.cloud {
+    background-position: 0 0;
+    width: 36px;
+    height: 23px;
+    top: 19px;
+    left: 14px;
+}
+.features_page .feature2 i.tools {
+    background-position: -5px -97px;
+    width: 25px;
+    height: 25px;
+    top: 19px;
+    left: 20px;
+}
+.features_page .feature2 i.graph {
+    background-position: -8px -47px;
+    width: 22px;
+    height: 25px;
+    top: 19px;
+    left: 21px
+}
+.features_page .feature2 i.mobile {
+    background-position: -7px -153px;
+    width: 21px;
+    height: 31px;
+    top: 18px;
+    left: 22px;
+}
+.features_page .feature2 i.lab {
+    background-position: -7px -212px;
+    width: 21px;
+    height: 34px;
+    top: 14px;
+    left: 22px;
+}
+.features_page .feature2 i.secure {
+    background-position: -4px -270px;
+    width: 24px;
+    height: 29px;
+    top: 16px;
+    left: 20px;
+}
+.features_page .feature2 h4,
+.features_page .feature2 p {
+    margin-left: 80px;
+    width: 70%;
+}
+.features_page .feature2 h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    line-height: 20px;
+    color: #000;
+}
+.features_page .feature2 a {
+    color: inherit;
+    text-decoration: none;
+}
+.features_page .feature2 a:hover {
+    color: #005580;
+    text-decoration: underline;
+}
+
+@media (max-width: 979px) {
+    .features_page h3.intro {
+        width: 100%;
+        /*font-size: 17px;
+        line-height: 20px;*/
+    }
+    /* contact info under profile pic */
+    .features_page .profile span {
+        margin-top: 2px;
+        margin-left: 0px;
+        font-size: 14px;
+        font-weight: 400;
+        width: 100%;
+        clear: both;
+    }
+    /* profile pic */
+    .features_page .profile .thumb {
+        margin-left:0px !important;
+        margin-right: 0px;
+        margin-top: 0px;
+        margin-bottom: 3px !important;
+    }
+    /* project type legend items on project page */
+    .features_page h3 span {
+        margin-right: 0px !important;
+        margin-bottom: 5px;
+        clear: both;
+        display: block;
+    }
+    /* The main heading on the project page */
+    .features_page .section_header span {
+        width: 100%;
+    }
+}

@@ -1,0 +1,93 @@
+{
+	"d":[" count ":{
+		"256": {
+			"dependancies": {
+				" $return_value ": {
+					"2": 1
+				}
+, " is_stderr ": {
+					"0": 1
+				}
+
+			}
+
+		}
+
+	}
+," is_stderr ":{
+		"0": {
+			"dependancies": {
+				" $return_value ": {
+					"2": 1
+				}
+, " count ": {
+					"256": 1
+				}
+
+			}
+
+		}
+
+	}
+," $return_value ":{
+		"2": {
+			"dependancies": {
+				" count ": {
+					"256": 1
+				}
+, " is_stderr ": {
+					"0": 1
+				}
+
+			}
+
+		}
+
+	}
+," count ":{
+		"256": {
+			"dependancies": {
+				" $return_value ": {
+					"2": 1
+				}
+, " is_stderr ": {
+					"0": 1
+				}
+
+			}
+
+		}
+
+	}
+," is_stderr ":{
+		"0": {
+			"dependancies": {
+				" $return_value ": {
+					"2": 1
+				}
+, " count ": {
+					"256": 1
+				}
+
+			}
+
+		}
+
+	}
+," $return_value ":{
+		"2": {
+			"dependancies": {
+				" count ": {
+					"256": 1
+				}
+, " is_stderr ": {
+					"0": 1
+				}
+
+			}
+
+		}
+
+	}
+]
+}

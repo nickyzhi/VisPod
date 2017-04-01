@@ -1,0 +1,22 @@
+Get function name 
+    funct.name
+
+For parameter
+    get value name
+    for value
+        get value as key
+        gt frequency, map with key
+        
+        for dependencies
+           for variable
+                set name as key
+                for value
+                    set value to key
+                    map frequency to the value
+
+ 
+
+
+
+
+

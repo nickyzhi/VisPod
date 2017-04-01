@@ -1,0 +1,142 @@
+abscess
+actinomycosis
+acute erythroid leukemia
+acute lymphoblastic leukemia
+acute megakaryoblastic leukemia
+acute monoblastic/monocytic leukemia
+acute myeloblastic leukemia
+atherosclerotic
+acute myelomonocytic leukemia
+adult t-cell lymphoma/leukemia
+agoraphobia
+alzheimer's disease
+anemia
+aneurysm
+angina pectoris
+angiopathy
+anxiolytic-induced psychotic disorder
+arthritis
+atherosclerosis
+attachment disorder
+bipolar disorder
+blastomycosis
+bursitis
+cannabis-induced anxiety disorder
+cardiomyopathy
+cataract
+catatonic disorder
+cerebrovascular insufficiency.
+cerebrovascular infarction
+chronic gout
+chronic kidney disease
+chronic lymphocytic leukemia
+chronic myeloid leukemia
+chronic obstructive pulmonary disease
+chronic pulmonary blastomycosis
+cocaine-induced anxiety disorder
+coxsackievirus
+crohn's disease
+cyclothymic disorder
+defibrination syndrome
+diabetes insipidus
+diabetes mellitus
+diabetic autonomic neuropathy
+diabetic autonomic (poly)neuropathy
+diabetic mononeuropathy
+diabetic polyneuropathy
+diabetic retinopathy
+disorders of sclera
+diverticular disease
+endocrine disorders
+escherichia coli
+fibroblastic disorders
+fistula
+flax-dressers' disease
+fracture
+gangrene
+gastrointestinal disorder
+glaucoma
+glycogenosis
+gout
+graft-versus-host disease
+hairy cell leukemia
+hallucinogen-induced psychotic disorder
+hantavirus
+harada's disease
+hemophilus influenzae
+hemorrhage
+hemorrhagic disorder
+hepatitis
+heart disease
+hepatorenal syndrome
+hydroxyapatite deposition disease
+hypertension
+hypoactive sexual desire disorder
+hypoglycemia
+hypoplasia
+impairment
+inflammatory disorders
+insipidus
+intermittent explosive disorder
+intervertebral disc disorders
+kaschin-beck disease
+laceration
+lesion
+lymphoma
+macular edema
+major depressive disorder
+marburg virus disease
+mast cell leukemia
+mast cell leukemia
+mastoiditis
+megakaryoblastic leukemia
+meningococci
+metabolic disorder
+methicillin resistant staphylococcus aureus
+mood disorder
+myelodysplastic disease
+myopathy
+lung disease
+liver disease
+neoplastic disease
+nonpneumonic legionnaires' disease
+ocular disorders
+onchocerciasis
+opioid related disorders
+orgasmic disorder
+osteitis
+osteonecrosis
+osteopathies
+pain disorder
+pain disorders
+pontiac fever
+panic disorder
+parasitic diseases
+perforation
+pneumonia
+polyneuropathy
+protozoal diseases
+psychotic disorder
+refsum's disease
+reiter's disease
+respiratory disorder
+retinal disorders
+rocio virus disease
+sandhoff disease
+schizoaffective disorder
+schizotypal disorder
+sleep disorders
+spasm
+spondylopathy
+streptococcus
+syphilis
+thrombosis
+tic disorder
+tubulo-interstitial disorders
+ulcer
+vascular dementia
+inhalant-induced dementia
+vascular disorders
+vasculitis
+veno-occlusive disease
+yaba pox virus disease

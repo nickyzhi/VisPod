@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+
+<script type="text/javascript" src="d3.min.js"></script>
+
+</head>
+<body id="canvas">
+
+<script>
+
+myjson = {"fname": "ssh_channel_read ","vars": [{"vname": " count ", "concordance": [{"possibleVal": "256", "frequency":1}]},{"vname": " is_stderr ", "concordance": [{"possibleVal": "0", "frequency":1}]},{"vname": " $return_value ", "concordance": [{"possibleVal": "2", "frequency":1}]},{"vname": " count ", "concordance": [{"possibleVal": "256", "frequency":1}]},{"vname": " is_stderr ", "concordance": [{"possibleVal": "0", "frequency":1}]},{"vname": " $return_value ", "concordance": [{"possibleVal": "2", "frequency":1}]}]};
+	
+myjson2 = {"d":{" count ":{"256": {"dependancies": {" $return_value ": {"2": 1}, " is_stderr ": {"0": 1}}}}," is_stderr ":{"0": {"dependancies": {" $return_value ": {"2": 1}, " count ": {"256": 1}}}}," $return_value ":{"2": {"dependancies": {" count ": {"256": 1}, " is_stderr ": {"0": 1}}}}," count ":{"256": {"dependancies": {" $return_value ": {"2": 1}, " is_stderr ": {"0": 1}}}}," is_stderr ":{"0": {"dependancies": {" $return_value ": {"2": 1}, " count ": {"256": 1}}}}," $return_value ":{"2": {"dependancies": {" count ": {"256": 1}, " is_stderr ": {"0": 1}}}}}};
+
+//mydata = JSON.parse(myjson);
+
+	dataBarGraph(myjson);
+
+
+
+
+function dataBarGraph (data) 
+{
+	numitems = 0;
+	canvas = d3.select("#canvas");
+	newGraph = canvas.append("svg:svg").attr("width", 200).attr("height", 200);
+	console.log('new graph');
+
+	for (a=0;a<data.vars.length;a++)
+	{
+		newGraph.append("svg:rect")
+		.attr("y", function(){numitems++;  return (numitems * 15)})
+		.attr("width", 20)
+		.attr("height", 10);
+	}
+	
+
+
+	keys = Object.keys(myjson2.d);
+	for (i=0;i<keys.length;i++)
+	{
+		numitems++;
+		vals = Object.keys(myjson2.d[keys[i]]);
+		for (j=0;j<vals.length;j++) 
+		{
+			dvals = Object.keys(myjson2.d[keys[i]][vals[j]].dependancies);
+			for(k=0;k<dvals.length;k++)
+			{
+				dvalFreq = Object.keys(myjson2.d[keys[i]][vals[j]].dependancies[dvals[k]]);
+
+				for(l=0;l<dvalFreq.length;l++)
+				{
+					
+					value = (myjson2.d[keys[i]][vals[j]].dependancies[dvals[k]][dvalFreq[l]]);
+		
+					newGraph.append("svg:rect")
+					.attr("x",  i*15 + 30)
+					.attr("width", 10)
+					.attr("height", value*100);
+				}
+			}
+		}
+	}
+
+	console.log('newestGraph');
+		
+}
+
+</script>
+</body>
+
+</html>

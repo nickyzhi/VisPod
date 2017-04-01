@@ -1,0 +1,12 @@
+antipsychotics
+anxiolytic
+cannabis
+cocaine
+hypnotic
+hallucinogen
+inhalant
+neuroleptics
+opioid
+phenothiazine
+sedative
+vasodilators

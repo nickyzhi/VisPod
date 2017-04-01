@@ -1,0 +1,12 @@
+{
+"links": [
+{"source":"Energy","target":"Industry","value":"2"},
+{"source":"Industrial Processes","target":"Industry","value":"2"},
+{"source":"Energy","target":"Electricity and heat","value":"2"}
+] ,
+"nodes": [
+{"name":"Energy"},
+{"name":"Industrial Processes"},
+{"name":"Electricity and heat"},
+{"name":"Industry"}
+] }

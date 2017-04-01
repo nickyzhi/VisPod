@@ -1,0 +1,31 @@
+Found 'Value'
+Jump ahead 2 addresses to define functName
+Jump ahead 14 addresses to get first variable name, add to varNames() array
+**	jump ahead 5 addresses, break up the values block for actual values
+		block.split(',') and take final array item and call it the
+value
+		store value in an array initialized for each new varName
+
+Jump ahead 4 to next variable name and repeat from ** to here
+
+//Create out object
+
+Function {
+	name: functName variable
+	parameters: Create one one foreach name in varNames
+		name: varName[i]
+		values (tuple) {
+				create a key for every value associated with
+varName[i]
+				for each value in values(varName[i]),
+increment the acosiated integer by 1
+				}
+		dependencies: {
+				for every unique value associated with
+varname, create a 'value' object and fill it with every name in varNames
+				at each i location for a given value, increase
+the frequency of all data in a matching position by 1.
+				}
+
+
+}
