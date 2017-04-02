@@ -1,0 +1,171 @@
+# -*- coding: utf-8 -*-
+
+import json
+import sys
+
+with open('dataset.json', 'w') as output:
+    data = [{},{},{}]
+    data[0]["topicName"]= "introduction"
+    data[0]["topicDuration"]= "45"
+    data[0]["topicContent"]={}
+    data[0]["topicContent"]["startTime"] = "00:00:00"
+    data[0]["topicContent"]["events"] = [{},{}]
+    data[0]["topicContent"]["events"][0]["eventTime"] = "00:00:28"
+    data[0]["topicContent"]["events"][0]["eventName"] = "New Speaker"
+    data[0]["topicContent"]["events"][1]["eventTime"] = "00:00:32"
+    data[0]["topicContent"]["events"][1]["eventName"] = "Topic"
+
+    data[0]["topicContent"]["sentences"] = [{},{},{},{},{},{},{},{}]
+    data[0]["topicContent"]["sentences"][0]["sentenceTime"] = "00:00:00"
+    data[0]["topicContent"]["sentences"][0]["sentenceContent"] = "This podcast of The Model Health Show is presented"
+    data[0]["topicContent"]["sentences"][0]["sentenceSpeaker"] = "shawn"
+    data[0]["topicContent"]["sentences"][1]["sentenceTime"] = "00:00:03"
+    data[0]["topicContent"]["sentences"][1]["sentenceContent"] = "to you by Shawn Stevenson"
+    data[0]["topicContent"]["sentences"][1]["sentenceSpeaker"] = "shawn"
+    data[0]["topicContent"]["sentences"][2]["sentenceTime"] = "00:00:04.98"
+    data[0]["topicContent"]["sentences"][2]["sentenceContent"] = "with Rare Gem Productions."
+    data[0]["topicContent"]["sentences"][2]["sentenceSpeaker"] = "shawn"
+    data[0]["topicContent"]["sentences"][3]["sentenceTime"] = "00:00:06.57"
+    data[0]["topicContent"]["sentences"][3]["sentenceContent"] = "For more information visit theshawnstevensonmodel.com."
+    data[0]["topicContent"]["sentences"][3]["sentenceSpeaker"] = "shawn"
+    data[0]["topicContent"]["sentences"][4]["sentenceTime"] = "00:00:15"
+    data[0]["topicContent"]["sentences"][4]["sentenceContent"] = "This podcast of The Model Health Show is presented"
+    data[0]["topicContent"]["sentences"][4]["sentenceSpeaker"] = "shawn"
+    data[0]["topicContent"]["sentences"][5]["sentenceTime"] = "00:00:20"
+    data[0]["topicContent"]["sentences"][5]["sentenceContent"] = "to you by Shawn Stevenson"
+    data[0]["topicContent"]["sentences"][5]["sentenceSpeaker"] = "shawn"
+    data[0]["topicContent"]["sentences"][6]["sentenceTime"] = "00:00:28"
+    data[0]["topicContent"]["sentences"][6]["sentenceContent"] = "with Rare Gem Productions."
+    data[0]["topicContent"]["sentences"][6]["sentenceSpeaker"] = "jade"
+    data[0]["topicContent"]["sentences"][7]["sentenceTime"] = "00:00:32"
+    data[0]["topicContent"]["sentences"][7]["sentenceContent"] = "For more information visit theshawnstevensonmodel.com."
+    data[0]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
+    data[0]["topicContent"]["sentences"][7]["sentenceTime"] = "00:00:38"
+    data[0]["topicContent"]["sentences"][7]["sentenceContent"] = "change a new topic"
+    data[0]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
+
+
+    data[0]["topicContent"]["keywords"] = [{},{},{},{},{}]
+    data[0]["topicContent"]["keywords"][0]["keywordScore"] = "8"
+    data[0]["topicContent"]["keywords"][0]["keyword"] = "Welcome"
+    data[0]["topicContent"]["keywords"][1]["keywordScore"] = "6"
+    data[0]["topicContent"]["keywords"][1]["keyword"] = "Nice"
+    data[0]["topicContent"]["keywords"][2]["keywordScore"] = "5"
+    data[0]["topicContent"]["keywords"][2]["keyword"] = "Expert"
+    data[0]["topicContent"]["keywords"][3]["keywordScore"] = "7"
+    data[0]["topicContent"]["keywords"][3]["keyword"] = "Famous"
+    data[0]["topicContent"]["keywords"][4]["keywordScore"] = "8"
+    data[0]["topicContent"]["keywords"][4]["keyword"] = "Book"
+
+
+    data[1]["topicName"]= "Food"
+    data[1]["topicContent"]={}
+    data[0]["topicDuration"]= "60"
+    data[1]["topicContent"]["startTime"] = "00:00:45"
+    data[1]["topicContent"]["events"] = [{},{}]
+    data[1]["topicContent"]["events"][0]["eventTime"] = "00:00:50"
+    data[1]["topicContent"]["events"][0]["eventName"] = "New Speaker"
+    data[1]["topicContent"]["events"][1]["eventTime"] = "00:01:20"
+    data[1]["topicContent"]["events"][1]["eventName"] = "Topic"
+
+    data[1]["topicContent"]["sentences"] = [{},{},{},{},{},{},{},{}]
+    data[1]["topicContent"]["sentences"][0]["sentenceTime"] = "00:00:45"
+    data[1]["topicContent"]["sentences"][0]["sentenceContent"] = "This podcast of The Model Health Show is presented"
+    data[1]["topicContent"]["sentences"][0]["sentenceSpeaker"] = "jade"
+    data[1]["topicContent"]["sentences"][1]["sentenceTime"] = "00:00:50"
+    data[1]["topicContent"]["sentences"][1]["sentenceContent"] = "to you by Shawn Stevenson"
+    data[1]["topicContent"]["sentences"][1]["sentenceSpeaker"] = "shawn"
+    data[1]["topicContent"]["sentences"][2]["sentenceTime"] = "00:00:55"
+    data[1]["topicContent"]["sentences"][2]["sentenceContent"] = "with Rare Gem Productions."
+    data[1]["topicContent"]["sentences"][2]["sentenceSpeaker"] = "shawn"
+    data[1]["topicContent"]["sentences"][3]["sentenceTime"] = "00:01:02"
+    data[1]["topicContent"]["sentences"][3]["sentenceContent"] = "For more information visit theshawnstevensonmodel.com."
+    data[1]["topicContent"]["sentences"][3]["sentenceSpeaker"] = "shawn"
+    data[1]["topicContent"]["sentences"][4]["sentenceTime"] = "00:01:15"
+    data[1]["topicContent"]["sentences"][4]["sentenceContent"] = "This podcast of The Model Health Show is presented"
+    data[1]["topicContent"]["sentences"][4]["sentenceSpeaker"] = "shawn"
+    data[1]["topicContent"]["sentences"][5]["sentenceTime"] = "00:01:20"
+    data[1]["topicContent"]["sentences"][5]["sentenceContent"] = "to you by Shawn Stevenson"
+    data[1]["topicContent"]["sentences"][5]["sentenceSpeaker"] = "shawn"
+    data[1]["topicContent"]["sentences"][6]["sentenceTime"] = "00:01:28"
+    data[1]["topicContent"]["sentences"][6]["sentenceContent"] = "with Rare Gem Productions."
+    data[1]["topicContent"]["sentences"][6]["sentenceSpeaker"] = "jade"
+    data[1]["topicContent"]["sentences"][7]["sentenceTime"] = "00:01:32"
+    data[1]["topicContent"]["sentences"][7]["sentenceContent"] = "For more information visit theshawnstevensonmodel.com."
+    data[1]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
+    data[1]["topicContent"]["sentences"][7]["sentenceTime"] = "00:01:38"
+    data[1]["topicContent"]["sentences"][7]["sentenceContent"] = "change a new topic"
+    data[1]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
+
+
+    data[1]["topicContent"]["keywords"] = [{},{},{},{},{}]
+    data[1]["topicContent"]["keywords"][0]["keywordScore"] = "8"
+    data[1]["topicContent"]["keywords"][0]["keyword"] = "Delicious"
+    data[1]["topicContent"]["keywords"][1]["keywordScore"] = "6"
+    data[1]["topicContent"]["keywords"][1]["keyword"] = "Nutrition"
+    data[1]["topicContent"]["keywords"][2]["keywordScore"] = "5"
+    data[1]["topicContent"]["keywords"][2]["keyword"] = "Meat"
+    data[1]["topicContent"]["keywords"][3]["keywordScore"] = "7"
+    data[1]["topicContent"]["keywords"][3]["keyword"] = "Vegetable"
+    data[1]["topicContent"]["keywords"][4]["keywordScore"] = "8"
+    data[1]["topicContent"]["keywords"][4]["keyword"] = "Oil"
+
+    data[2]["topicName"]= "Exercise"
+    data[2]["topicContent"]={}
+    data[0]["topicDuration"]= "60"
+    data[2]["topicContent"]["startTime"] = "00:01:45"
+    data[2]["topicContent"]["events"] = [{},{}]
+    data[2]["topicContent"]["events"][0]["eventTime"] = "00:01:50"
+    data[2]["topicContent"]["events"][0]["eventName"] = "New Speaker"
+    data[2]["topicContent"]["events"][1]["eventTime"] = "00:02:28"
+    data[2]["topicContent"]["events"][1]["eventName"] = "Topic"
+
+    data[2]["topicContent"]["sentences"] = [{},{},{},{},{},{},{},{}]
+    data[2]["topicContent"]["sentences"][0]["sentenceTime"] = "00:01:45"
+    data[2]["topicContent"]["sentences"][0]["sentenceContent"] = "This podcast of The Model Health Show is presented"
+    data[2]["topicContent"]["sentences"][0]["sentenceSpeaker"] = "jade"
+    data[2]["topicContent"]["sentences"][1]["sentenceTime"] = "00:01:50"
+    data[2]["topicContent"]["sentences"][1]["sentenceContent"] = "to you by Shawn Stevenson"
+    data[2]["topicContent"]["sentences"][1]["sentenceSpeaker"] = "shawn"
+    data[2]["topicContent"]["sentences"][2]["sentenceTime"] = "00:01:55"
+    data[2]["topicContent"]["sentences"][2]["sentenceContent"] = "with Rare Gem Productions."
+    data[2]["topicContent"]["sentences"][2]["sentenceSpeaker"] = "shawn"
+    data[2]["topicContent"]["sentences"][3]["sentenceTime"] = "00:02:02"
+    data[2]["topicContent"]["sentences"][3]["sentenceContent"] = "For more information visit theshawnstevensonmodel.com."
+    data[2]["topicContent"]["sentences"][3]["sentenceSpeaker"] = "shawn"
+    data[2]["topicContent"]["sentences"][4]["sentenceTime"] = "00:02:15"
+    data[2]["topicContent"]["sentences"][4]["sentenceContent"] = "This podcast of The Model Health Show is presented"
+    data[2]["topicContent"]["sentences"][4]["sentenceSpeaker"] = "shawn"
+    data[2]["topicContent"]["sentences"][5]["sentenceTime"] = "00:02:20"
+    data[2]["topicContent"]["sentences"][5]["sentenceContent"] = "to you by Shawn Stevenson"
+    data[2]["topicContent"]["sentences"][5]["sentenceSpeaker"] = "shawn"
+    data[2]["topicContent"]["sentences"][6]["sentenceTime"] = "00:02:28"
+    data[2]["topicContent"]["sentences"][6]["sentenceContent"] = "with Rare Gem Productions."
+    data[2]["topicContent"]["sentences"][6]["sentenceSpeaker"] = "jade"
+    data[2]["topicContent"]["sentences"][7]["sentenceTime"] = "00:02:32"
+    data[2]["topicContent"]["sentences"][7]["sentenceContent"] = "For more information visit theshawnstevensonmodel.com."
+    data[2]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
+    data[2]["topicContent"]["sentences"][7]["sentenceTime"] = "00:02:38"
+    data[2]["topicContent"]["sentences"][7]["sentenceContent"] = "change a new topic"
+    data[2]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
+
+
+    data[2]["topicContent"]["keywords"] = [{},{},{},{},{},{},{},{}]
+    data[2]["topicContent"]["keywords"][0]["keywordScore"] = "8"
+    data[2]["topicContent"]["keywords"][0]["keyword"] = "Run"
+    data[2]["topicContent"]["keywords"][1]["keywordScore"] = "6"
+    data[2]["topicContent"]["keywords"][1]["keyword"] = "Walk"
+    data[2]["topicContent"]["keywords"][2]["keywordScore"] = "5"
+    data[2]["topicContent"]["keywords"][2]["keyword"] = "Food"
+    data[2]["topicContent"]["keywords"][3]["keywordScore"] = "7"
+    data[2]["topicContent"]["keywords"][3]["keyword"] = "Morning"
+    data[2]["topicContent"]["keywords"][4]["keywordScore"] = "8"
+    data[2]["topicContent"]["keywords"][4]["keyword"] = "Ball"
+    data[2]["topicContent"]["keywords"][5]["keywordScore"] = "5"
+    data[2]["topicContent"]["keywords"][5]["keyword"] = "Act"
+    data[2]["topicContent"]["keywords"][6]["keywordScore"] = "7"
+    data[2]["topicContent"]["keywords"][6]["keyword"] = "Play"
+    data[2]["topicContent"]["keywords"][7]["keywordScore"] = "4"
+    data[2]["topicContent"]["keywords"][7]["keyword"] = "Shoe"
+
+    json.dump(data, output)

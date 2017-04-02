@@ -5,11 +5,15 @@
         <title>test</title>
         <link href="css/test.css" rel="stylesheet" type="text/css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <audio id="bgm" loop><source src="80.mp3"/></audio>
     </head>
     <body>
         <div id = "vispod">
             <div id = "content">
+                <button type="button" id="refresh-btn">Refresh data</button>
+                <div id="donut-charts"></div>
+
             </div>
 
             <div id = "playbutton">
@@ -20,7 +24,44 @@
         
         
     </body>
+    <script>
+        var width = 960,
+            height = 500,
+            radius = Math.min(width, height) / 2;
 
+        var color = d3.scale.category20();
+
+        var pie = d3.layout.pie()
+            .value(function(d) { return d.apples; })
+            .sort(null);
+
+        var arc = d3.svg.arc()
+            .innerRadius(radius - 100)
+            .outerRadius(radius - 20);
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+          .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        d3.json('dataset.json', function(error, data) {
+          var path = svg.datum(data).selectAll("path")
+              .data(pie)
+            .enter().append("path")
+              .attr("fill", function(d, i) { return color(i); })
+              .attr("d", arc);
+
+
+        });
+
+        function type(d) {
+          d.apples = +d.apples;
+          d.oranges = +d.oranges;
+          return d;
+        }
+    </script>
+    <script src="js/donut.js"></script>
     <script src="js/audio.js"></script>
 </html>
 
