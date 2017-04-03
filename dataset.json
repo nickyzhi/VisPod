@@ -58,8 +58,10 @@
             "sentenceSpeaker": "jade"
         }]
     },
+    "topicDuration": "45",
     "topicName": "introduction"
 }, {
+    "topicDuration": "60",
     "topicContent": {
         "keywords": [{
             "keywordScore": "8",
@@ -121,6 +123,7 @@
     },
     "topicName": "Food"
 }, {
+    "topicDuration": "60",
     "topicContent": {
         "keywords": [{
             "keywordScore": "8",

@@ -60,7 +60,7 @@ with open('dataset.json', 'w') as output:
 
     data[1]["topicName"]= "Food"
     data[1]["topicContent"]={}
-    data[0]["topicDuration"]= "60"
+    data[1]["topicDuration"]= "60"
     data[1]["topicContent"]["startTime"] = "00:00:45"
     data[1]["topicContent"]["events"] = [{},{}]
     data[1]["topicContent"]["events"][0]["eventTime"] = "00:00:50"
@@ -112,7 +112,7 @@ with open('dataset.json', 'w') as output:
 
     data[2]["topicName"]= "Exercise"
     data[2]["topicContent"]={}
-    data[0]["topicDuration"]= "60"
+    data[2]["topicDuration"]= "60"
     data[2]["topicContent"]["startTime"] = "00:01:45"
     data[2]["topicContent"]["events"] = [{},{}]
     data[2]["topicContent"]["events"][0]["eventTime"] = "00:01:50"
