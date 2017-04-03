@@ -45,7 +45,7 @@ with open('dataset.json', 'w') as output:
     data[0]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
 
 
-    data[0]["topicContent"]["keywords"] = [{},{},{},{},{}]
+    data[0]["topicContent"]["keywords"] = [{},{},{},{},{},{}]
     data[0]["topicContent"]["keywords"][0]["keywordScore"] = "8"
     data[0]["topicContent"]["keywords"][0]["keyword"] = "Welcome"
     data[0]["topicContent"]["keywords"][1]["keywordScore"] = "6"
@@ -56,6 +56,8 @@ with open('dataset.json', 'w') as output:
     data[0]["topicContent"]["keywords"][3]["keyword"] = "Famous"
     data[0]["topicContent"]["keywords"][4]["keywordScore"] = "8"
     data[0]["topicContent"]["keywords"][4]["keyword"] = "Book"
+    data[0]["topicContent"]["keywords"][5]["keywordScore"] = "12"
+    data[0]["topicContent"]["keywords"][5]["keyword"] = "Introduction"
 
 
     data[1]["topicName"]= "Food"
@@ -98,7 +100,7 @@ with open('dataset.json', 'w') as output:
     data[1]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
 
 
-    data[1]["topicContent"]["keywords"] = [{},{},{},{},{}]
+    data[1]["topicContent"]["keywords"] = [{},{},{},{},{},{}]
     data[1]["topicContent"]["keywords"][0]["keywordScore"] = "8"
     data[1]["topicContent"]["keywords"][0]["keyword"] = "Delicious"
     data[1]["topicContent"]["keywords"][1]["keywordScore"] = "6"
@@ -109,6 +111,8 @@ with open('dataset.json', 'w') as output:
     data[1]["topicContent"]["keywords"][3]["keyword"] = "Vegetable"
     data[1]["topicContent"]["keywords"][4]["keywordScore"] = "8"
     data[1]["topicContent"]["keywords"][4]["keyword"] = "Oil"
+    data[1]["topicContent"]["keywords"][5]["keywordScore"] = "12"
+    data[1]["topicContent"]["keywords"][5]["keyword"] = "Food"
 
     data[2]["topicName"]= "Exercise"
     data[2]["topicContent"]={}
@@ -150,7 +154,7 @@ with open('dataset.json', 'w') as output:
     data[2]["topicContent"]["sentences"][7]["sentenceSpeaker"] = "jade"
 
 
-    data[2]["topicContent"]["keywords"] = [{},{},{},{},{},{},{},{}]
+    data[2]["topicContent"]["keywords"] = [{},{},{},{},{},{},{},{},{}]
     data[2]["topicContent"]["keywords"][0]["keywordScore"] = "8"
     data[2]["topicContent"]["keywords"][0]["keyword"] = "Run"
     data[2]["topicContent"]["keywords"][1]["keywordScore"] = "6"
@@ -167,5 +171,7 @@ with open('dataset.json', 'w') as output:
     data[2]["topicContent"]["keywords"][6]["keyword"] = "Play"
     data[2]["topicContent"]["keywords"][7]["keywordScore"] = "4"
     data[2]["topicContent"]["keywords"][7]["keyword"] = "Shoe"
+    data[2]["topicContent"]["keywords"][8]["keywordScore"] = "12"
+    data[2]["topicContent"]["keywords"][8]["keyword"] = "Exercise"
 
     json.dump(data, output)
