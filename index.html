@@ -7,7 +7,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="js/gen_xy.js"></script>
-        <audio id="bgm" loop><source src="80.mp3"/></audio>
+        <audio id="bgm" loop><source src="pod_demo_5.mp3"/></audio>
     </head>
     <body>
         <div id = "vispod">
@@ -67,8 +67,6 @@
             .attr("height",function(d){return 2*d.r} )
             .attr("width", function(d){return 2*d.r} )
             .attr("class", "circle");
-        //start time
-        var t0 = Math.floor('0');
 
         $(".playpause").click(function () {
             //click to play
@@ -77,11 +75,11 @@
                 this.src = "pictures/pause.ico";
                 d3.timer(function() {
                     var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
-                    //44917 -- 500, 3491000 for whole episode
+                    ///200,one circle is 36000, for 283000, which is a 5 mins audio
                     svg.selectAll(".circle").attr("transform", function(d) {
-                      return "rotate(" +  currentTime/(200) + ")";
+                      return "rotate(" +  currentTime*36/(200*283) + ")";
+                    });
                 });
-            });
             }
             //click to pause
             else{
@@ -120,6 +118,7 @@
                 d.topicDuration = +d.topicDuration;
             });
 
+            //draw donut
             var g = svg.selectAll(".arc")
                 .data(pie(data))
                 .enter().append("g")
@@ -133,6 +132,7 @@
             .on("drag", dragmove)
             .on('dragend',explode);
  
+            //draw topic and drag
             var group = svg.selectAll("drag").data(data).enter()
                 .append("g").call(drag);
 
@@ -158,12 +158,10 @@
 
             function explode(){
                 d3.select(this).style("display","none");
-                
                 var keywordsContent = this.__data__.topicContent.keywords
-console.log(keywordsContent);
+
                 var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent).enter().append("g");
 
-                
                 var innerCircle = innerCircleEnter.append("circle")
                     .attr("r", function(d){return d.keywordScore*radius/(10*7)})
                     .attr("cx",function(d,i){return gen_x(i,80)})
@@ -187,7 +185,6 @@ console.log(keywordsContent);
                         .transition()
                     .duration(1300)
                     .attr("opacity",0.8);
-
             }
 
         });

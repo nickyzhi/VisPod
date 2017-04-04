@@ -50,3 +50,5 @@ function gen_x(i,d){
                     }
                     return x;
                 }
+
+                
