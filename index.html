@@ -60,22 +60,22 @@
         
         var circlesData = [{ r: -10+(inner_padding-out_padding)/2},];
 
-        var circleEnter = svg.selectAll(".circle").data(circlesData).enter().append("g").attr("class", "circle")
+        var circleEnter = svg.selectAll(".profilecircle").data(circlesData).enter().append("g")
 
         var circle = circleEnter.append("circle")
             .attr("r", function(d){return d.r})
             .attr("cx",0)
             .attr("cy", function(d){return out_padding-radius-d.r} )
-            .attr("class", "circle");
+            .attr("class", "profilecircle");
     
 
         var images = circleEnter.append("image")
-            .attr("xlink:href",  "pictures/ShawnStevenson.png")
+            .attr("xlink:href",  "pictures/Jade.png")
             .attr("x", function(d){return -d.r})
             .attr("y", function(d){return out_padding-radius-2*d.r})
             .attr("height",function(d){return 2*d.r} )
             .attr("width", function(d){return 2*d.r} )
-            .attr("class", "circle");
+            .attr("class", "profilecircle");
 
         $(".playpause").click(function () {
             //click to play
@@ -85,7 +85,7 @@
                 d3.timer(function() {
                     var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
                     ///200,one circle is 36000, for 283000, which is a 5 mins audio
-                    svg.selectAll(".circle").attr("transform", function(d) {
+                    svg.selectAll(".profilecircle").attr("transform", function(d) {
                       return "rotate(" +  currentTime*36/(200*283) + ")";
                     });
                 });
@@ -103,38 +103,28 @@
           var y = d3.event.y;
           d3.select(this).attr("transform", "translate(" + (x- width/2 + radius) + "," + (y+radius/2) + ")");
         }
- 
-        
-        
-        function createCircle(x, y, radius, color){
-            var circle = svg.append("circle")
-                .attr({r: 0, fill: color})
-                .attr("transform", "translate(" + x + "," + y + ")")
-                .attr("opacity",0);
-            circle
-                .transition()
-                .duration(1300)
-                .attr({r: radius})
-                .attr("opacity",0.8)
-        }
-
-
 
         d3.json('dataset.json', function(error, data) {
             if (error) throw error;
 
-            // d3.timer(function() {
-            //     var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
-                
-            // });
-
-console.log(data)
-
-
-
+            var sentenceTime = []
+            var sentenceContent = []
+            var sentenceSpeaker = []
             data.forEach(function(d) {
                 d.topicDuration = +d.topicDuration;
+                d.sentences.forEach(function(t){
+                    sentenceTime.push(ParseTime(t.sentenceTime));
+                    sentenceContent.push(t.sentenceContent);
+                    sentenceSpeaker.push(t.sentenceSpeaker);
+                });
             });
+
+            d3.timer(function() {
+                var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
+                var index = Search(sentenceTime,currentTime/1000);
+                    images.attr("xlink:href",  "pictures/"+sentenceSpeaker[index]+".png")
+            });
+            
 
             //draw donut
             var g = svg.selectAll(".arc")
@@ -176,7 +166,7 @@ console.log(data)
 
             function explode(){
                 d3.select(this).style("display","none");
-                var keywordsContent = this.__data__.topicContent.keywords
+                var keywordsContent = this.__data__.keywords
 
                 var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent).enter().append("g");
 

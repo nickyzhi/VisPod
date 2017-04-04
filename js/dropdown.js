@@ -19,3 +19,15 @@ function filterFunction() {
     }
 }
 
+function Search(array, key) {
+    var i,y;
+    for (i = 0; i < array.length; i++){
+        if (key >= array[i]) y = i;
+    }
+    return y;
+}
+function ParseTime(time){
+    var str = time.split(':');
+    var sec = (+str[0])*3600 + (+str[1])*60 + (+str[2]);
+    return sec
+}
