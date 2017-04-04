@@ -122,7 +122,8 @@
             d3.timer(function() {
                 var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
                 var index = Search(sentenceTime,currentTime/1000);
-                    images.attr("xlink:href",  "pictures/"+sentenceSpeaker[index]+".png")
+                images.attr("xlink:href",  "pictures/"+sentenceSpeaker[index]+".png")
+                $("p").text(sentenceContent[index]);
             });
             
 
