@@ -7,29 +7,22 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="js/gen_xy.js"></script>
-<<<<<<< HEAD
         <audio id="bgm" loop><source src="pod_demo_5.mp3"/></audio>
-=======
         <script src="js/dropdown.js"></script>
         <audio id="bgm" loop><source src="80.mp3"/></audio>
->>>>>>> e51e386a0c42041e11d1976ffa18f5a32255bf54
     </head>
     <body>
         <div id = "vispod">
             <div id = "content">
             </div>
-
             <div id = "playbutton">
                 <img class="playpause"  src="pictures/play.ico" />
                 <p class="sentenceContent"> This podcast of The Model Health Show is presented to you by Shawn Stevenson. </p>
             </div>          
-            <div class="dropdown">
+            <div id="dropdown">
                 <button onclick="myFunction()" class="dropbtn">Similar Podcasts</button>
                   <div id="myDropdown" class="dropdown-content">
                     <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                    <a href="#">TMHS 210: 4 Reasons You’re Tired All The Time (And What To Do About It!)</a>
-                    <a href="#">TMHS 203: 5 Tips To Get The Most Out Of Your Fitness Program – With Drew Canole</a>
-                    <a href="#">TMHS 181: Investing In Yourself, Staying Consistent, Late Night Exercise And More!</a>
                     <a href="#">TMHS 169: Don’t Just Sit There – With Katy Bowman</a>
                     <a href="#">TMHS 149: Why Great Sleep Is The Ultimate Fat Burner</a>
                     <a href="#">THMS 147: 10 Ways Sleep Can Give You A Better Brain</a>
@@ -45,8 +38,8 @@
         var width = $("#content").width(),
             height = $("#content").height(),
             radius = (Math.min(width, height) / 2),
-            out_padding = 50,
-            inner_padding = 110;
+            out_padding = radius/6,
+            inner_padding = radius/2.5;
 
         var color = d3.scale.category20();
 
@@ -65,7 +58,7 @@
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
         
-        var circlesData = [{ r: 25},];
+        var circlesData = [{ r: -10+(inner_padding-out_padding)/2},];
 
         var circleEnter = svg.selectAll(".circle").data(circlesData).enter().append("g").attr("class", "circle")
 
@@ -77,7 +70,7 @@
     
 
         var images = circleEnter.append("image")
-            .attr("xlink:href",  "test.jpeg")
+            .attr("xlink:href",  "pictures/ShawnStevenson.png")
             .attr("x", function(d){return -d.r})
             .attr("y", function(d){return out_padding-radius-2*d.r})
             .attr("height",function(d){return 2*d.r} )
@@ -129,6 +122,16 @@
 
         d3.json('dataset.json', function(error, data) {
             if (error) throw error;
+
+            // d3.timer(function() {
+            //     var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
+                
+            // });
+
+console.log(data)
+
+
+
             data.forEach(function(d) {
                 d.topicDuration = +d.topicDuration;
             });

@@ -1,205 +1,538 @@
 [{
-    "topicContent": {
-        "keywords": [{
-            "keywordScore": "8",
-            "keyword": "Welcome"
-        }, {
-            "keywordScore": "6",
-            "keyword": "Nice"
-        }, {
-            "keywordScore": "5",
-            "keyword": "Expert"
-        }, {
-            "keywordScore": "7",
-            "keyword": "Famous"
-        }, {
-            "keywordScore": "8",
-            "keyword": "Book"
-        }, {
-            "keywordScore": "12",
-            "keyword": "Introduction"
-        }],
-        "events": [{
-            "eventName": "New Speaker",
-            "eventTime": "00:00:28"
-        }, {
-            "eventName": "Topic",
-            "eventTime": "00:00:32"
-        }],
-        "startTime": "00:00:00",
-        "sentences": [{
-            "sentenceTime": "00:00:00",
-            "sentenceContent": "This podcast of The Model Health Show is presented",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:00:03",
-            "sentenceContent": "to you by Shawn Stevenson",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:00:04.98",
-            "sentenceContent": "with Rare Gem Productions.",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:00:06.57",
-            "sentenceContent": "For more information visit theshawnstevensonmodel.com.",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:00:15",
-            "sentenceContent": "This podcast of The Model Health Show is presented",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:00:20",
-            "sentenceContent": "to you by Shawn Stevenson",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:00:28",
-            "sentenceContent": "with Rare Gem Productions.",
-            "sentenceSpeaker": "jade"
-        }, {
-            "sentenceTime": "00:00:38",
-            "sentenceContent": "change a new topic",
-            "sentenceSpeaker": "jade"
-        }]
-    },
-    "topicDuration": "45",
-    "topicName": "introduction"
+    "events": [{
+        "eventName": "Introducing Website",
+        "eventTime": "00:00:06"
+    }],
+    "topicDuration": "14",
+    "startTime": "00:00:00",
+    "sentences": [{
+        "sentenceTime": "00:00:00",
+        "sentenceContent": "This podcast of The Model Health Show is presented",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:00:03",
+        "sentenceContent": "to you by Shawn Stevenson with Rare Gem Productions.",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:00:06",
+        "sentenceContent": "For more information visit theshawnstevensonmodel.com.",
+        "sentenceSpeaker": "Jade"
+    }],
+    "keywords": [{
+        "keywordScore": "5",
+        "keyword": "Shawn"
+    }, {
+        "keywordScore": "3",
+        "keyword": "visit"
+    }, {
+        "keywordScore": "9",
+        "keyword": "Podcast"
+    }, {
+        "keywordScore": "5",
+        "keyword": "Production"
+    }, {
+        "keywordScore": "10",
+        "keyword": "Opening"
+    }],
+    "topicName": "Opening"
 }, {
-    "topicDuration": "60",
-    "topicContent": {
-        "keywords": [{
-            "keywordScore": "8",
-            "keyword": "Delicious"
-        }, {
-            "keywordScore": "6",
-            "keyword": "Nutrition"
-        }, {
-            "keywordScore": "5",
-            "keyword": "Meat"
-        }, {
-            "keywordScore": "7",
-            "keyword": "Vegetable"
-        }, {
-            "keywordScore": "8",
-            "keyword": "Oil"
-        }, {
-            "keywordScore": "12",
-            "keyword": "Food"
-        }],
-        "events": [{
-            "eventName": "New Speaker",
-            "eventTime": "00:00:50"
-        }, {
-            "eventName": "Topic",
-            "eventTime": "00:01:20"
-        }],
-        "startTime": "00:00:45",
-        "sentences": [{
-            "sentenceTime": "00:00:45",
-            "sentenceContent": "This podcast of The Model Health Show is presented",
-            "sentenceSpeaker": "jade"
-        }, {
-            "sentenceTime": "00:00:50",
-            "sentenceContent": "to you by Shawn Stevenson",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:00:55",
-            "sentenceContent": "with Rare Gem Productions.",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:01:02",
-            "sentenceContent": "For more information visit theshawnstevensonmodel.com.",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:01:15",
-            "sentenceContent": "This podcast of The Model Health Show is presented",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:01:20",
-            "sentenceContent": "to you by Shawn Stevenson",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:01:28",
-            "sentenceContent": "with Rare Gem Productions.",
-            "sentenceSpeaker": "jade"
-        }, {
-            "sentenceTime": "00:01:38",
-            "sentenceContent": "change a new topic",
-            "sentenceSpeaker": "jade"
-        }]
-    },
-    "topicName": "Food"
+    "events": [{
+        "eventName": "Fantastonishing",
+        "eventTime": "00:00:26"
+    }],
+    "topicDuration": "34",
+    "startTime": "00:00:14",
+    "sentences": [{
+        "sentenceTime": "00:00:14",
+        "sentenceContent": "Welcome to The Model Health Show, this is fitness and nutrition expert,",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:18",
+        "sentenceContent": "Shawn Stevenson, here with my cohost and producer,",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:20",
+        "sentenceContent": "the amazing Jade Harrell. What'\u0080\u0099s up Jade?",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:23",
+        "sentenceContent": "What'\u0080\u0099s up Shawn?",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:00:25",
+        "sentenceContent": "How are you doing today?",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:26",
+        "sentenceContent": "Man, what an intro you just made. I am fantastonishing!",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:00:31",
+        "sentenceContent": "Fantastonishing? Break that down for me, what is that?",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:35",
+        "sentenceContent": "Fantastically astonishing or astonishingly fantastic.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:39",
+        "sentenceContent": "Either way, I like it. It'\u0080\u0099s like the reversible cap.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:43",
+        "sentenceContent": "You get two different styles in one cap. Awesome, awesome.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:48",
+        "sentenceContent": "Well, glad to hear that. ",
+        "sentenceSpeaker": "shawn"
+    }],
+    "keywords": [{
+        "keywordScore": "8",
+        "keyword": "Hi"
+    }, {
+        "keywordScore": "8",
+        "keyword": "Fantastonishing"
+    }, {
+        "keywordScore": "5",
+        "keyword": "Awesome"
+    }, {
+        "keywordScore": "3",
+        "keyword": "How"
+    }, {
+        "keywordScore": "3",
+        "keyword": "Glad"
+    }, {
+        "keywordScore": "10",
+        "keyword": "Greeting"
+    }],
+    "topicName": "Greeting"
 }, {
-    "topicDuration": "60",
-    "topicContent": {
-        "keywords": [{
-            "keywordScore": "8",
-            "keyword": "Run"
-        }, {
-            "keywordScore": "6",
-            "keyword": "Walk"
-        }, {
-            "keywordScore": "5",
-            "keyword": "Food"
-        }, {
-            "keywordScore": "7",
-            "keyword": "Morning"
-        }, {
-            "keywordScore": "8",
-            "keyword": "Ball"
-        }, {
-            "keywordScore": "5",
-            "keyword": "Act"
-        }, {
-            "keywordScore": "7",
-            "keyword": "Play"
-        }, {
-            "keywordScore": "4",
-            "keyword": "Shoe"
-        }, {
-            "keywordScore": "12",
-            "keyword": "Exercise"
-        }],
-        "events": [{
-            "eventName": "New Speaker",
-            "eventTime": "00:01:50"
-        }, {
-            "eventName": "Topic",
-            "eventTime": "00:02:28"
-        }],
-        "startTime": "00:01:45",
-        "sentences": [{
-            "sentenceTime": "00:01:45",
-            "sentenceContent": "This podcast of The Model Health Show is presented",
-            "sentenceSpeaker": "jade"
-        }, {
-            "sentenceTime": "00:01:50",
-            "sentenceContent": "to you by Shawn Stevenson",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:01:55",
-            "sentenceContent": "with Rare Gem Productions.",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:02:02",
-            "sentenceContent": "For more information visit theshawnstevensonmodel.com.",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:02:15",
-            "sentenceContent": "This podcast of The Model Health Show is presented",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:02:20",
-            "sentenceContent": "to you by Shawn Stevenson",
-            "sentenceSpeaker": "shawn"
-        }, {
-            "sentenceTime": "00:02:28",
-            "sentenceContent": "with Rare Gem Productions.",
-            "sentenceSpeaker": "jade"
-        }, {
-            "sentenceTime": "00:02:38",
-            "sentenceContent": "change a new topic",
-            "sentenceSpeaker": "jade"
-        }]
-    },
-    "topicName": "Exercise"
+    "events": [{
+        "eventName": "Introducing sex hormones",
+        "eventTime": "00:00:53"
+    }, {
+        "eventName": "Introducing testosterone",
+        "eventTime": "00:00:57"
+    }],
+    "topicDuration": "42",
+    "startTime": "00:00:39",
+    "sentences": [{
+        "sentenceTime": "00:00:49",
+        "sentenceContent": "And everybody, thank you so much for tuning in.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:50",
+        "sentenceContent": "We'\u0080\u0099ve got an amazing show for you today.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:53",
+        "sentenceContent": "Today we'\u0080\u0099re going to be talking about how to boost your sex hormones.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:00:56",
+        "sentenceContent": "Well, we'\u0080\u0099ll take that.",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:00:57",
+        "sentenceContent": "In particular, we'\u0080\u0099re going to be talking about how to boost testosterone naturally.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:01",
+        "sentenceContent": "Testosterone is important for men and women.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:03",
+        "sentenceContent": "I was just going to say, is this for the guys today?",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:01:06",
+        "sentenceContent": "Yeah, it'\u0080\u0099s a far deeper thing than just about sex.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:10",
+        "sentenceContent": "It'\u0080\u0099s really about a lot of other important ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:13",
+        "sentenceContent": "and fundamental things for us to be healthy and fit long term. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:17",
+        "sentenceContent": "Testosterone is a big player in that so we'\u0080\u0099re going to talk all about that. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:19",
+        "sentenceContent": "I'\u0080\u0099m also going to be wrapping the show up ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:20",
+        "sentenceContent": "by sharing with you ten ways to boost your testosterone naturally.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:24",
+        "sentenceContent": "Okay.",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:01:25",
+        "sentenceContent": "And many of these things are the price of free. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:28",
+        "sentenceContent": "You know, my favorite price. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:31",
+        "sentenceContent": "So, stay tuned for that ",
+        "sentenceSpeaker": "shawn"
+    }],
+    "keywords": [{
+        "keywordScore": "6",
+        "keyword": "hormones"
+    }, {
+        "keywordScore": "8",
+        "keyword": "sex"
+    }, {
+        "keywordScore": "8",
+        "keyword": "testosterone"
+    }, {
+        "keywordScore": "5",
+        "keyword": "price"
+    }, {
+        "keywordScore": "4",
+        "keyword": "natural"
+    }, {
+        "keywordScore": "3",
+        "keyword": "free"
+    }, {
+        "keywordScore": "10",
+        "keyword": "Introducing"
+    }],
+    "topicName": "Introduction"
+}, {
+    "events": [{
+        "eventName": "sponsor website",
+        "eventTime": "00:01:36"
+    }, {
+        "eventName": "hemp protein",
+        "eventTime": "00:01:50"
+    }, {
+        "eventName": "lower toxicity",
+        "eventTime": "00:02:42"
+    }, {
+        "eventName": "vanilla acai",
+        "eventTime": "00:03:04"
+    }],
+    "topicDuration": "137",
+    "startTime": "00:01:32",
+    "sentences": [{
+        "sentenceTime": "00:01:32",
+        "sentenceContent": "but first let'\u0080\u0099s give a shout out to our show sponsor, onnit.com.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:36",
+        "sentenceContent": "Head over to onnit.com/model for 10% all your health and human performance supplements.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:46",
+        "sentenceContent": "If you don'\u0080\u0099t know by now you'\u0080\u0099ve got to get the Hemp FORCE.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:50",
+        "sentenceContent": "Hemp protein is the most bioavailable protein for the human body.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:53",
+        "sentenceContent": "If you'\u0080\u0099re going to be somebody who'\u0080\u0099s operating at a high level,",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:56",
+        "sentenceContent": "working out, getting your train on, getting your body together, ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:01:59",
+        "sentenceContent": "you need some high-quality protein and hemp is the way to go. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:03",
+        "sentenceContent": "You are not going to be dealing with all the nefarious, ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:06",
+        "sentenceContent": "kind of sketchy stuff as you move up the food chain.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:09",
+        "sentenceContent": "You'\u0080\u0099re dealing with, what did that cow eat that I'\u0080\u0099m drinking. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:11",
+        "sentenceContent": "Of course, if you get whey protein it'\u0080\u0099s going to be from 5,000 cows.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:15",
+        "sentenceContent": "And I'\u0080\u0099m just saying, they are not keeping food diaries, okay.",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:02:19",
+        "sentenceContent": "Exactly. So all of those immunological factors can potentially ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:24",
+        "sentenceContent": "cause an autoimmune response in your body. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:26",
+        "sentenceContent": "I'\u0080\u0099m not saying that for all whey proteins ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:27",
+        "sentenceContent": "but the standard stuff out there ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:29",
+        "sentenceContent": "is not the best so we'\u0080\u0099re going to cut away that whole pathway ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:33",
+        "sentenceContent": "and get onto something of a higher quality, ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:35",
+        "sentenceContent": "that good plant-based protein so you'\u0080\u0099re not going to be worrying about",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:38",
+        "sentenceContent": "toxins working their way up the food chain.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:41",
+        "sentenceContent": "It will be lower toxicity. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:43",
+        "sentenceContent": "Also, it'\u0080\u0099s organic too so you'\u0080\u0099re not dealing with pesticides, fungicides. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:46",
+        "sentenceContent": "It'\u0080\u0099s estrogenic compounds, by the way, ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:49",
+        "sentenceContent": "since we'\u0080\u0099re talking about building testosterone.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:52",
+        "sentenceContent": "These things, when you'\u0080\u0099re dealing with pesticides can actually hurt your test. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:56",
+        "sentenceContent": "So we'\u0080\u0099re going to call testosterone,",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:57",
+        "sentenceContent": "we'\u0080\u0099re going to shorten it today and call it test.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:02:59",
+        "sentenceContent": "Test, we'\u0080\u0099re going to call it test.",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:03:01",
+        "sentenceContent": "So definitely get your hands on some Hemp FORCE protein. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:04",
+        "sentenceContent": "We love the vanilla acai and the choco maca.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:06",
+        "sentenceContent": "Both flavors are incredible.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:07",
+        "sentenceContent": "Yes they are.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:09",
+        "sentenceContent": "Also, the SHROOM Tech. That'\u0080\u0099s a pre-workout. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:12",
+        "sentenceContent": "Or, as Jade says, a pre- life. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:13",
+        "sentenceContent": "It gets your energy right, nice, natural consistent energy. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:17",
+        "sentenceContent": "You'\u0080\u0099re not going to be spiked out like Spike Lee trying to trip referees, you know. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:22",
+        "sentenceContent": "You'\u0080\u0099re going to feel good and consistent. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:24",
+        "sentenceContent": "And it is coming from something that'\u0080\u0099s got 5,000 years of documented history ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:27",
+        "sentenceContent": "in Chinese medicine so it'\u0080\u0099s been around a while.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:30",
+        "sentenceContent": "I love it.",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:03:31",
+        "sentenceContent": "Also, with the news clinical studies today showing its impact ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:34",
+        "sentenceContent": "on oxygenating your blood, boosting stamina, improving your insulin sensitivity ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:39",
+        "sentenceContent": "which means less belly fat, it'\u0080\u0099s really powerful stuff. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:42",
+        "sentenceContent": "We'\u0080\u0099re talking about cordyceps mushroom ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:44",
+        "sentenceContent": "and that'\u0080\u0099s the basis of the SHROOM Tech formula so those are two incredible things.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:48",
+        "sentenceContent": "They'\u0080\u0099ve got a lot more so head over there ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:49",
+        "sentenceContent": "and check them out, onnit.com/model for 10% off.",
+        "sentenceSpeaker": "shawn"
+    }],
+    "keywords": [{
+        "keywordScore": "9",
+        "keyword": "onnit"
+    }, {
+        "keywordScore": "8",
+        "keyword": "protein"
+    }, {
+        "keywordScore": "6",
+        "keyword": "medicine"
+    }, {
+        "keywordScore": "5",
+        "keyword": "flavor"
+    }, {
+        "keywordScore": "10",
+        "keyword": "Advertisement"
+    }],
+    "topicName": "Advertisement"
+}, {
+    "events": [{
+        "eventName": "Five star rating",
+        "eventTime": "00:03:55"
+    }, {
+        "eventName": "Go to show",
+        "eventTime": "00:04:31"
+    }],
+    "topicDuration": "42",
+    "startTime": "00:03:53",
+    "sentences": [{
+        "sentenceTime": "00:03:53",
+        "sentenceContent": "Now let'\u0080\u0099s get into the iTunes review of the week",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:55",
+        "sentenceContent": "Here'\u0080\u0099s a five-star rating Shawn which we so love to receive. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:03:59",
+        "sentenceContent": "It says, '\u0080\u009cAwesome podcast. One of the best.'\u0080\u009d From Howard H.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:04",
+        "sentenceContent": "'\u0080\u009cI heard an interview of Shawn on the Smart Passive Income podcast.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:07",
+        "sentenceContent": "I was so glad I started listening. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:09",
+        "sentenceContent": "I bought his Sleep Smarter book twice, ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:11",
+        "sentenceContent": "one for me and the other for my daughter.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:14",
+        "sentenceContent": "I'\u0080\u0099ve been enjoying his podcast from the first one. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:17",
+        "sentenceContent": "There is so much good information that I can'\u0080\u0099t stop listening.'\u0080\u009d",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:21",
+        "sentenceContent": "Wow, that is incredible.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:22",
+        "sentenceContent": "That worked.",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:04:23",
+        "sentenceContent": "That'\u0080\u0099s incredible. Spreading the love.",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:24",
+        "sentenceContent": "Yes.",
+        "sentenceSpeaker": "Jade"
+    }, {
+        "sentenceTime": "00:04:25",
+        "sentenceContent": "The LUV. I love it. Thank you so much. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:28",
+        "sentenceContent": "Thank you so much for leaving that review ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:29",
+        "sentenceContent": "and everybody thanks for heading over to iTunes ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:31",
+        "sentenceContent": "and leaving reviews for the show. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:33",
+        "sentenceContent": "That means so much. ",
+        "sentenceSpeaker": "shawn"
+    }, {
+        "sentenceTime": "00:04:35",
+        "sentenceContent": "It makes my day every single time I open those up ",
+        "sentenceSpeaker": "shawn"
+    }],
+    "keywords": [{
+        "keywordScore": "8",
+        "keyword": "Itunes"
+    }, {
+        "keywordScore": "9",
+        "keyword": "Awesome"
+    }, {
+        "keywordScore": "8",
+        "keyword": "Podcast"
+    }, {
+        "keywordScore": "5",
+        "keyword": "Book"
+    }, {
+        "keywordScore": "10",
+        "keyword": "Review"
+    }],
+    "topicName": "Review"
 }]
