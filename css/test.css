@@ -50,7 +50,6 @@ form {
   right: 10px;
   top: 10px;
 }
-
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -58,7 +57,7 @@ form {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    margin-right: -270px;
+    margin-right: -500px;
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -96,6 +95,6 @@ form {
     display: block;
 }
 
-.dropdown a:hover {background-color: #ddd}
+.dropdown-content a:hover {background-color: #ddd}
 
 .show {display:block;}

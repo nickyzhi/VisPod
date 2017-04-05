@@ -13,6 +13,7 @@
     </head>
     <body>
         <div id = "vispod">
+            <h1>VISPOD: Visualizing Podcast Content</h1>
             <div id = "content">
             </div>
             <div id = "playbutton">
@@ -96,37 +97,27 @@
                 this.src = "pictures/play.ico";
             }
         });
-
-        function dragmove() {
-          d3.select(this).attr({ x: 0, y: 0});
-          var x = d3.event.x;
-          var y = d3.event.y;
-          d3.select(this).attr("transform", "translate(" + (x- width/2 + radius) + "," + (y+radius/2) + ")");
-        }
-
         d3.json('dataset.json', function(error, data) {
             if (error) throw error;
 
-            var sentenceTime = []
-            var sentenceContent = []
-            var sentenceSpeaker = []
-            data.forEach(function(d) {
+            var sentenceTime = [],
+                sentenceContent = [],
+                sentenceSpeaker = [],
+                topicDuration = [0],
+                topicTime = [],
+                topicName = [];
+            data.forEach(function(d,i) {
                 d.topicDuration = +d.topicDuration;
+                topicDuration.push(d.topicDuration);
+                topicName.push(d.topicName);
                 d.sentences.forEach(function(t){
                     sentenceTime.push(ParseTime(t.sentenceTime));
                     sentenceContent.push(t.sentenceContent);
                     sentenceSpeaker.push(t.sentenceSpeaker);
                 });
             });
-
-            d3.timer(function() {
-                var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
-                var index = Search(sentenceTime,currentTime/1000);
-                images.attr("xlink:href",  "pictures/"+sentenceSpeaker[index]+".png")
-                $("p").text(sentenceContent[index]);
-            });
-            
-
+            //topicTime is accumulate topic duration time
+            topicDuration.reduce(function(a,b,i) { return topicTime[i] = a+b; },0);
             //draw donut
             var g = svg.selectAll(".arc")
                 .data(pie(data))
@@ -134,47 +125,54 @@
                 .attr("class", "arc");
 
             g.append("path")
-            .attr("d", arc)
-            .style("fill", function(d) { return color(d.data.topicName); });
+                .attr("d", arc)
+                .style("fill", function(d) { return color(d.data.topicName); });
 
             var drag = d3.behavior.drag()
-            .on("drag", dragmove)
-            .on('dragend',explode);
+                .on("drag", dragmove)
+                .on('dragend',explode);
  
             //draw topic and drag
-            var group = svg.selectAll("drag").data(data).enter()
-                .append("g").call(drag);
+            var group = svg.selectAll("draggroup").data(data).enter()
+                .append("g")
+            var draggroup = group.call(drag);
 
             var rect = group.append("rect")
                 .attr("x",  radius+inner_padding)
                 .attr("y", function(d,i) { return i*60-radius+70; })
-                .attr("width", 120)
+                .attr("width", 130)
                 .attr("height", 50)
                 .attr("fill", function(d) { return color(d.topicName); })
                 .attr("class", "rect")
-                .attr("class", "drag");
+                .attr("class", "draggroup");
 
             var rectText = group.append("text")
                 .text(function(d) { return d.topicName; })
                 .attr("text-anchor", "middle")
-                .attr("x", radius+out_padding+120)
+                .attr("x", radius+inner_padding+65)
                 .attr("y", function(d,i) { return i*60-radius+100; })
-                .attr("font-family", "sans-serif")
-                .attr("font-size", "20px")
+                .attr("font-size", "18px")
                 .attr("fill", "black")
+                .style("margin-left","20px")
                 .attr("class", "text")
-                .attr("class", "drag");
+                .attr("class", "draggroup");
 
+             function dragmove() {
+                d3.select(this).attr({ x: 0, y: 0});
+                var x = d3.event.x ;
+                var y = d3.event.y;
+                d3.select(this).attr("transform", "translate(" + (x - width/2 + radius) + "," + (y+radius/2) + ")");
+            }
             function explode(){
                 d3.select(this).style("display","none");
                 var keywordsContent = this.__data__.keywords
 
                 var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent).enter().append("g");
-
+                var circle_r = 90;
                 var innerCircle = innerCircleEnter.append("circle")
                     .attr("r", function(d){return d.keywordScore*radius/(10*7)})
-                    .attr("cx",function(d,i){return gen_x(i,80)})
-                    .attr("cy", function(d,i){return gen_y(i,80)})
+                    .attr("cx",function(d,i){return gen_x(i,circle_r)})
+                    .attr("cy", function(d,i){return gen_y(i,circle_r)})
                     .attr("class", "innercircle")
                     .attr("fill",d3.select(this).select("rect").style('fill'))
                     .attr("opacity",0)
@@ -183,18 +181,37 @@
                     .attr("opacity",0.8);
 
                 var innerText = innerCircleEnter.append("text")
-                    .text(function(d) { return d.keyword; })
+                    .text(function(d) { return d.keyword})
                     .attr("text-anchor", "middle")
-                    .attr("x", function(d,i){return gen_x(i,90)})
-                    .attr("y", function(d,i){return gen_y(i,80)})
+                    .attr("x", function(d,i){return gen_x(i,circle_r)})
+                    .attr("y", function(d,i){return gen_y(i,circle_r)})
                     .attr("font-family", "sans-serif")
-                    .attr("font-size", "10px")
+                    .attr("font-size", function(d) { return d.keywordScore*radius/(200) + "px"; })
                     .attr("fill", "black")
                     .attr("opacity",0)
                         .transition()
                     .duration(1300)
                     .attr("opacity",0.8);
             }
+
+            //update by d3 timer control
+            d3.timer(function() {
+                var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
+                var sentence_index = Search(sentenceTime,currentTime/1000);
+                //update profile picture
+                images.attr("xlink:href",  "pictures/"+sentenceSpeaker[sentence_index]+".png")
+                //update transcript
+                $("p").text(sentenceContent[sentence_index]);
+                // var topic_index = Search(topicTime,currentTime/1000);
+                // //console.log(topicTime,topicName[topic_index])
+                // var topicContent = [currentTime,topicName[topic_index]];
+                // if (topicContent != [currentTime-1,topicName[topic_index]]){
+
+                // }
+                // //console.log($(".text:contains(topicName[topic_index])").index())
+
+                
+            });
 
         });
 
