@@ -97,6 +97,7 @@
                 this.src = "pictures/play.ico";
             }
         });
+
         d3.json('dataset.json', function(error, data) {
             if (error) throw error;
 
@@ -157,12 +158,14 @@
                 .attr("class", "text")
                 .attr("class", "draggroup");
 
-             function dragmove() {
+            function dragmove() {
                 d3.select(this).attr({ x: 0, y: 0});
                 var x = d3.event.x ;
                 var y = d3.event.y;
                 d3.select(this).attr("transform", "translate(" + (x - width/2 + radius) + "," + (y+radius/2) + ")");
             }
+	    
+   	    //Add circles in the center
             function explode(){
                 d3.select(this).style("display","none");
                 var keywordsContent = this.__data__.keywords
