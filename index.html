@@ -11,10 +11,12 @@
         <script src="js/dropdown.js"></script>
         <audio id="bgm" loop><source src="80.mp3"/></audio>
     </head>
+
     <body>
         <div id = "vispod">
             <h1>VISPOD: Visualizing Podcast Content</h1>
             <div id = "content">
+                <h2>Podcast Title</h2>
             </div>
             <div id = "playbutton">
                 <img class="playpause"  src="pictures/play.ico" />
@@ -61,7 +63,10 @@
         
         var circlesData = [{ r: -10+(inner_padding-out_padding)/2},];
 
-        var circleEnter = svg.selectAll(".profilecircle").data(circlesData).enter().append("g")
+        var circleEnter = svg.selectAll(".profilecircle")
+                          .data(circlesData)
+                          .enter()
+                          .append("g")
 
         var circle = circleEnter.append("circle")
             .attr("r", function(d){return d.r})
@@ -160,12 +165,12 @@
 
             function dragmove() {
                 d3.select(this).attr({ x: 0, y: 0});
-                var x = d3.event.x ;
+                var x = d3.event.x;
                 var y = d3.event.y;
                 d3.select(this).attr("transform", "translate(" + (x - width/2 + radius) + "," + (y+radius/2) + ")");
             }
 	    
-   	    //Add circles in the center
+   	        //Add circles in the center
             function explode(){
                 d3.select(this).style("display","none");
                 var keywordsContent = this.__data__.keywords
@@ -179,7 +184,7 @@
                     .attr("class", "innercircle")
                     .attr("fill",d3.select(this).select("rect").style('fill'))
                     .attr("opacity",0)
-                        .transition()
+                    .transition()
                     .duration(1300)
                     .attr("opacity",0.8);
 
@@ -192,12 +197,12 @@
                     .attr("font-size", function(d) { return d.keywordScore*radius/(200) + "px"; })
                     .attr("fill", "black")
                     .attr("opacity",0)
-                        .transition()
+                    .transition()
                     .duration(1300)
                     .attr("opacity",0.8);
             }
 
-            //update by d3 timer control
+            //Update by d3 timer control
             d3.timer(function() {
                 var currentTime = Math.floor(document.getElementById("bgm").currentTime*1000);
                 var sentence_index = Search(sentenceTime,currentTime/1000);
