@@ -53,6 +53,11 @@
         var pie = d3.layout.pie()
             .sort(null)
             .value(function(d) { return d.topicDuration; });
+        
+        // Define the div for the tooltip
+        var profile_tooltip = d3.select("body").append("div")   
+            .attr("class", "tooltip")               
+            .style("opacity", 0)
 
         var svg = d3.select("#content")
             .append("svg")
@@ -73,8 +78,7 @@
             .attr("r", function(d){return d.r})
             .attr("cx",0)
             .attr("cy", function(d){return out_padding-radius-d.r} )
-            .attr("class", "profilecircle");
-    
+            .attr("class", "profilecircle"); 
 
         var images = circleEnter.append("image")
             .attr("xlink:href",  "pictures/Jade.png")
@@ -82,7 +86,27 @@
             .attr("y", function(d){return out_padding-radius-2*d.r})
             .attr("height",function(d){return 2*d.r} )
             .attr("width", function(d){return 2*d.r} )
-            .attr("class", "profilecircle");
+            .attr("class", "profilecircle")
+            .on("mouseover", function(d){
+                profile_tooltip
+                    .transition()
+                    .duration(200)      
+                    .style("opacity", .8);      
+                profile_tooltip
+                    .html("<a href='theshawnstevensonmodel.com'>" + images.attr('id') + "</a>")  
+                    .style("left", (d3.event.pageX + 50) + "px")     
+                    .style("top", (d3.event.pageY - 30) + "px") 
+            })                  
+            .on("mouseout", function(d) {       
+                    profile_tooltip
+                    .transition()        
+                    .duration(500)      
+                    .style("opacity", 0);   
+
+            })
+            .on("click", function(){
+                window.open('http://www.theshawnstevensonmodel.com')
+            });
 
         $(".playpause").click(function () {
             //click to play
@@ -142,6 +166,8 @@
             //draw topic and drag
             var group = svg.selectAll("draggroup").data(data).enter()
                 .append("g")
+                .attr("class","topic_rects")
+
             var draggroup = group.call(drag);
 
             var rect = group.append("rect")
@@ -172,11 +198,16 @@
             }
 	    
    	    //Add circles in the center
+        //TO DO - Use d3.select(this) as the parameter to explode()
             function explode(){
                 d3.select(this).style("display","none");
                 var keywordsContent = this.__data__.keywords
 
-                var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent).enter().append("g");
+                var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent)
+                    .enter()
+                    .append("g")
+                    .attr("class", "innercircles");
+
                 var circle_r = 90;
                 var innerCircle = innerCircleEnter.append("circle")
                     .attr("r", function(d){return d.keywordScore*radius/(10*7)})
@@ -209,15 +240,31 @@
                 var sentence_index = Search(sentenceTime,currentTime/1000);
                 //update profile picture
                 images.attr("xlink:href",  "pictures/"+sentenceSpeaker[sentence_index]+".png")
+                      .attr("id", sentenceSpeaker[sentence_index]);
                 //update transcript
                 $("p").text(sentenceContent[sentence_index]);
-                // var topic_index = Search(topicTime,currentTime/1000);
-                // //console.log(topicTime,topicName[topic_index])
+
+                var topic_index = Search(topicTime,currentTime/1000);
+                console.log(topic_index);
+
+                switch (topic_index){
+                    case 0:
+
+                    case 1:
+
+                    case 2:
+
+                    case 3:
+
+                    case 4:
+                }
+
+                //console.log(topicTime,topicName[topic_index])
                 // var topicContent = [currentTime,topicName[topic_index]];
                 // if (topicContent != [currentTime-1,topicName[topic_index]]){
 
                 // }
-                // //console.log($(".text:contains(topicName[topic_index])").index())
+                //console.log($(".text:contains(topicName[topic_index])").index())
 
                 
             });
