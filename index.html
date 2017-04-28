@@ -12,9 +12,8 @@
 
     <body>
         <div id = "vispod">
-            <h1>VISPOD: Visualizing Podcast Content</h1>
+            <h2>The Model Health Show with Shawn Stevenson #80</h2>
             <div id = "content">
-                <h2>The Model Health Show with Shawn Stevenson #80</h2>
             </div>
             <div id = "playbutton">
                 <img class="playpause"  src="pictures/play.ico" />
@@ -22,7 +21,7 @@
                 </p>
                 
             </div>          
-            <div id="dropdown">
+            <!-- <div id="dropdown">
                 <button onclick="myFunction()" class="dropbtn">Similar Podcasts</button>
                   <div id="myDropdown" class="dropdown-content">
                     <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
@@ -30,7 +29,7 @@
                     <a href="#">TMHS 149: Why Great Sleep Is The Ultimate Fat Burner</a>
                     <a href="#">THMS 147: 10 Ways Sleep Can Give You A Better Brain</a>
                   </div>
-            </div>
+            </div> -->
         </div>
     </body>
 
@@ -66,7 +65,7 @@
             .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
         
-        var circlesData = [{ r: -10+(inner_padding-out_padding)/2},];
+        var circlesData = [{ r: -10+(inner_padding-out_padding)/2}];
 
         var circleEnter = svg.selectAll(".profilecircle")
                           .data(circlesData)
@@ -120,13 +119,17 @@
                       return "rotate(" +  currentTime*360/audio_duration + ")";
                     });
                 });
+                
             }
             //click to pause
             else{
                 bgmPause();
                 this.src = "pictures/play.ico";
+
             }
         });
+
+
 
         d3.json('dataset.json', function(error, data) {
             if (error) throw error;
@@ -155,94 +158,117 @@
             var g = svg.selectAll(".arc")
                 .data(pie(data))
                 .enter().append("g")
-                .attr("class", "arc")
-                .on("click", function(d) {
-                    var time = ParseTime(d.data.startTime);
-                    console.log(time, document.getElementById("bgm").currentTime);
-                    document.getElementById("bgm").currentTime = time;
-                    
-                     
-                });;
+                .attr("class", "arc");
 
             g.append("path")
                 .attr("d", arc)
                 .style("fill", function(d) { return color(d.data.topicName); });
 
-            var drag = d3.behavior.drag()
-                .on("drag", dragmove)
-                .on('dragend',explode);
  
             //draw topic and drag
             var group = svg.selectAll("draggroup").data(data).enter()
                 .append("g")
-                .attr("class","topic_rects")
+                .attr("class", "topic_rects")
 
-            var draggroup = group.call(drag);
+            // var draggroup = group.call(drag);
 
-            var rect = group.append("rect")
-                .attr("x",  radius+inner_padding)
-                .attr("y", function(d,i) { return i*60-radius+70; })
-                .attr("width", 130)
-                .attr("height", 50)
-                .attr("fill", function(d) { return color(d.topicName); })
-                .attr("class", "rect")
-                .attr("class", "draggroup");
 
-            var rectText = group.append("text")
-                .text(function(d) { return d.topicName; })
-                .attr("text-anchor", "middle")
-                .attr("x", radius+inner_padding+65)
-                .attr("y", function(d,i) { return i*60-radius+100; })
-                .attr("font-size", "18px")
-                .attr("fill", "black")
-                .style("margin-left","20px")
-                .attr("class", "text")
-                .attr("class", "draggroup");
+            if (typeof window.orientation !== 'undefined') {
+                    var rect = group.append("rect")
+                        .attr("x", function(d,i) { return i*140-radius+70; })
+                        .attr("y", -radius - 1.5 * circlesData[0].r )
+                        .attr("width", 130)
+                        .attr("height", 50)
+                        .attr("fill", function(d) { return color(d.topicName); })
+                        .attr("class", "rect")
+                        .attr("id", function(d) { return d.topicName.split(" ")[0]; })
+                        .attr("class", "draggroup");
+                    var rectText = group.append("text")
+                        .text(function(d) { return d.topicName; })
+                        .attr("text-anchor", "middle")
+                        .attr("x", function(d,i) { return i*140-radius+140; })
+                        .attr("y", -radius - 1.5 * circlesData[0].r + 30)
+                        .attr("font-size", "14px")
+                        .attr("fill", "black")
+                        .style("margin-left","20px")
+                        .attr("class", "text")
+                        .attr("id", function(d) { return d.topicName.split(" ")[0]; })
+                        .attr("class", "draggroup");
+                }else{
+                    var rect = group.append("rect")
+                        .attr("x",  -radius-inner_padding-60)
+                        .attr("y", function(d,i) { return i*60-radius+70; })
+                        .attr("width", 130)
+                        .attr("height", 50)
+                        .attr("fill", function(d) { return color(d.topicName); })
+                        .attr("class", "rect")
+                        .attr("id", function(d) { return d.topicName.split(" ")[0]; })
+                        .attr("class", "draggroup");
+                    var rectText = group.append("text")
+                        .text(function(d) { return d.topicName; })
+                        .attr("text-anchor", "middle")
+                        .attr("x", -radius-inner_padding+5)
+                        .attr("y", function(d,i) { return i*60-radius+100; })
+                        .attr("font-size", "18px")
+                        .attr("fill", "black")
+                        .style("margin-left","20px")
+                        .attr("class", "text")
+                        .attr("id", function(d) { return d.topicName.split(" ")[0]; })
+                        .attr("class", "draggroup");
+                }
 
-            function dragmove() {
-                d3.select(this).attr({ x: 0, y: 0});
-                var x = d3.event.x;
-                var y = d3.event.y;
-                d3.select(this).attr("transform", "translate(" + (x - width/2 + radius) + "," + (y+radius/2) + ")");
+            g.on("click", function(d) {
+                    $(".innercircle").css("display","none");
+                    var time = ParseTime(d.data.startTime);
+                    console.log(d.data);
+                    var audio_duration = document.getElementById("bgm").duration;
+                    document.getElementById("bgm").currentTime = time;
+                    svg.selectAll(".profilecircle").attr("transform", function(d) {
+                      return "rotate(" +  time*360/audio_duration + ")";
+                    });
+                    var topicname = d.data.topicName.split(" ")[0];
+                    d3.selectAll("#"+topicname).transition().attr("x","0").attr("y","0").transition().attr("display","none");
+
+                    var keywordsContent = d.data.keywords
+
+                    var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent)
+                        .enter()
+                        .append("g")
+                        .attr("class", "innercircles");
+
+                    var circle_r = 90;
+                    var innerCircle = innerCircleEnter.append("circle")
+                        .attr("r", function(d){return d.keywordScore*radius/(10*7)})
+                        .attr("cx",function(d,i){return gen_x(i,circle_r)})
+                        .attr("cy", function(d,i){return gen_y(i,circle_r)})
+                        .attr("class", "innercircle")
+                        .attr("fill",d3.selectAll("#"+topicname).style('fill'))
+                        .attr("opacity",0)
+                        .transition()
+                        .duration(1300)
+                        .attr("opacity",0.8);
+
+                    var innerText = innerCircleEnter.append("text")
+                        .text(function(d) { return d.keyword})
+                        .attr("text-anchor", "middle")
+                        .attr("x", function(d,i){return gen_x(i,circle_r)})
+                        .attr("y", function(d,i){return gen_y(i,circle_r)})
+                        .attr("font-family", "sans-serif")
+                        .attr("class", "innercircle")
+                        .attr("font-size", function(d) { return d.keywordScore*radius/(200) + "px"; })
+                        .attr("fill", "black")
+                        .attr("opacity",0)
+                        .transition()
+                        .duration(1300)
+                        .attr("opacity",0.8);
+
+
+                })
+            //replace eq in jquery with d3 function
+            d3.selection.prototype.eq = function(index) {  
+              return d3.select(this[0][index]);
             }
-	    
-   	    //Add circles in the center
-        //TO DO - Use d3.select(this) as the parameter to explode()
-            function explode(){
-                d3.select(this).style("display","none");
-                var keywordsContent = this.__data__.keywords
-
-                var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent)
-                    .enter()
-                    .append("g")
-                    .attr("class", "innercircles");
-
-                var circle_r = 90;
-                var innerCircle = innerCircleEnter.append("circle")
-                    .attr("r", function(d){return d.keywordScore*radius/(10*7)})
-                    .attr("cx",function(d,i){return gen_x(i,circle_r)})
-                    .attr("cy", function(d,i){return gen_y(i,circle_r)})
-                    .attr("class", "innercircle")
-                    .attr("fill",d3.select(this).select("rect").style('fill'))
-                    .attr("opacity",0)
-                    .transition()
-                    .duration(1300)
-                    .attr("opacity",0.8);
-
-                var innerText = innerCircleEnter.append("text")
-                    .text(function(d) { return d.keyword})
-                    .attr("text-anchor", "middle")
-                    .attr("x", function(d,i){return gen_x(i,circle_r)})
-                    .attr("y", function(d,i){return gen_y(i,circle_r)})
-                    .attr("font-family", "sans-serif")
-                    .attr("font-size", function(d) { return d.keywordScore*radius/(200) + "px"; })
-                    .attr("fill", "black")
-                    .attr("opacity",0)
-                    .transition()
-                    .duration(1300)
-                    .attr("opacity",0.8);
-            }
-
+            //console.log(d3.selectAll(".topic_rects").eq(1))
             //Update by d3 timer control
             d3.timer(function() {
                 var currentTime = Math.floor(document.getElementById("bgm").currentTime);
@@ -252,28 +278,6 @@
                       .attr("id", sentenceSpeaker[sentence_index]);
                 //update transcript
                 $("p").text(sentenceContent[sentence_index]);
-
-                var topic_index = Search(topicTime,currentTime);
-                //console.log(topicTime, currentTime, topic_index);
-
-                switch (topic_index){
-                    case 0:
-
-                    case 1:
-
-                    case 2:
-
-                    case 3:
-
-                    case 4:
-                }
-
-                //console.log(topicTime,topicName[topic_index])
-                // var topicContent = [currentTime,topicName[topic_index]];
-                // if (topicContent != [currentTime-1,topicName[topic_index]]){
-
-                // }
-                //console.log($(".text:contains(topicName[topic_index])").index())
 
                 
             });
