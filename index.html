@@ -182,7 +182,10 @@
                         .attr("fill", function(d) { return color(d.topicName); })
                         .attr("class", "rect")
                         .attr("id", function(d) { return d.topicName.split(" ")[0]; })
-                        .attr("class", "draggroup");
+                        .attr("class", "draggroup")
+                        .on("click", function(d){
+                            rectClickFunction(d);
+                        });;
                     var rectText = group.append("text")
                         .text(function(d) { return d.topicName; })
                         .attr("text-anchor", "middle")
@@ -193,7 +196,10 @@
                         .style("margin-left","20px")
                         .attr("class", "text")
                         .attr("id", function(d) { return d.topicName.split(" ")[0]; })
-                        .attr("class", "draggroup");
+                        .attr("class", "draggroup")
+                        .on("click", function(d){
+                            rectClickFunction(d);
+                        });;
                 }else{
                     var rect = group.append("rect")
                         .attr("x",  -radius-inner_padding-60)
@@ -203,19 +209,71 @@
                         .attr("fill", function(d) { return color(d.topicName); })
                         .attr("class", "rect")
                         .attr("id", function(d) { return d.topicName.split(" ")[0]; })
-                        .attr("class", "draggroup");
+                        .attr("class", "draggroup")
+                        .on("click", function(d){
+                            rectClickFunction(d);
+                        });
                     var rectText = group.append("text")
                         .text(function(d) { return d.topicName; })
                         .attr("text-anchor", "middle")
                         .attr("x", -radius-inner_padding+5)
                         .attr("y", function(d,i) { return i*60-radius+100; })
-                        .attr("font-size", "18px")
+                        .attr("font-size", "14px")
                         .attr("fill", "black")
                         .style("margin-left","20px")
                         .attr("class", "text")
                         .attr("id", function(d) { return d.topicName.split(" ")[0]; })
-                        .attr("class", "draggroup");
+                        .attr("class", "draggroup")
+                        .on("click", function(d){
+                            rectClickFunction(d);
+                        });;
                 }
+            var rectClickFunction = function(d){
+                $(".innercircle").css("display","none");
+                var time = ParseTime(d.startTime);
+                var audio_duration = document.getElementById("bgm").duration;
+                document.getElementById("bgm").currentTime = time;
+                svg.selectAll(".profilecircle").attr("transform", function(d) {
+                  return "rotate(" +  time*360/audio_duration + ")";
+                });
+                var topicname = d.topicName.split(" ")[0];
+                $("#"+topicname).clone().appendTo("body");
+                d3.selectAll("#"+topicname).transition().attr("x","0").attr("y","0").transition().attr("display","none");
+
+                var keywordsContent = d.keywords
+
+                var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent)
+                    .enter()
+                    .append("g")
+                    .attr("class", "innercircles");
+
+                var circle_r = 90;
+                var innerCircle = innerCircleEnter.append("circle")
+                    .attr("r", function(d){return d.keywordScore*radius/(10*7)})
+                    .attr("cx",function(d,i){return gen_x(i,circle_r)})
+                    .attr("cy", function(d,i){return gen_y(i,circle_r)})
+                    .attr("class", "innercircle")
+                    .attr("fill",d3.selectAll("#"+topicname).style('fill'))
+                    .attr("opacity",0)
+                    .transition()
+                    .duration(1300)
+                    .attr("opacity",0.8);
+
+                var innerText = innerCircleEnter.append("text")
+                    .text(function(d) { return d.keyword})
+                    .attr("text-anchor", "middle")
+                    .attr("x", function(d,i){return gen_x(i,circle_r)})
+                    .attr("y", function(d,i){return gen_y(i,circle_r)})
+                    .attr("font-family", "sans-serif")
+                    .attr("class", "innercircle")
+                    .attr("font-size", function(d) { return d.keywordScore*radius/(200) + "px"; })
+                    .attr("fill", "black")
+                    .attr("opacity",0)
+                    .transition()
+                    .duration(1300)
+                    .attr("opacity",0.8);
+            }
+
 
             g.on("click", function(d) {
                     $(".innercircle").css("display","none");
