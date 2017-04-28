@@ -656,7 +656,7 @@ with open('dataset.json', 'w') as output:
     data[1]["keywords"][5]["keyword"] = "Testosterone"
 
     data[2]["topicName"]= "Testosterone Impact"
-    data[2]["topicDuration"]= "98"
+    data[2]["topicDuration"]= "114"
     data[2]["startTime"] = "00:07:52"
     data[2]["events"] = [{}]
     data[2]["events"][0]["eventTime"] = "00:08:03"
