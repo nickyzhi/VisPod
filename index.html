@@ -182,7 +182,7 @@
                         .attr("height", 50)
                         .attr("fill", function(d) { return color(d.topicName); })
                         .attr("class", "rect")
-                        .attr("id", function(d) { return d.topicName.split(" ")[0]; })
+                        .attr("id", function(d) { return d.topicName.split(" ")[0]+'rect'; })
                         .attr("class", "draggroup")
                         .style("margin-left","20px")
                         .on("click", function(d){
@@ -197,20 +197,20 @@
                         .attr("fill", "black")
                         .style("margin-left","20px")
                         .attr("class", "text")
-                        .attr("id", function(d) { return d.topicName.split(" ")[0]; })
+                        .attr("id", function(d) { return d.topicName.split(" ")[0]+'text'; })
                         .attr("class", "draggroup")
                         .on("click", function(d){
                             rectClickFunction(d);
                         });
                 }else{
                     var rect = group.append("rect")
-                        .attr("x",  -radius-inner_padding-300)
+                        .attr("x",  -radius-inner_padding-100)
                         .attr("y", function(d,i) { return i*60-radius+70; })
                         .attr("width", 180)
                         .attr("height", 50)
                         .attr("fill", function(d) { return color(d.topicName); })
                         .attr("class", "rect")
-                        .attr("id", function(d) { return d.topicName.split(" ")[0]; })
+                        .attr("id", function(d) { return d.topicName.split(" ")[0]+'rect'; })
                         .attr("class", "draggroup")
                         .on("click", function(d){
                             rectClickFunction(d);
@@ -218,13 +218,13 @@
                     var rectText = group.append("text")
                         .text(function(d) { return d.topicName; })
                         .attr("text-anchor", "middle")
-                        .attr("x", -radius-inner_padding-205)
+                        .attr("x", -radius-inner_padding-10)
                         .attr("y", function(d,i) { return i*60-radius+100; })
                         .attr("font-size", "15px")
                         .attr("fill", "black")
                         .style("margin-left","50px")
                         .attr("class", "text")
-                        .attr("id", function(d) { return d.topicName.split(" ")[0]; })
+                        .attr("id", function(d) { return d.topicName.split(" ")[0]+'text'; })
                         .attr("class", "draggroup")
                         .on("click", function(d){
                             rectClickFunction(d);
@@ -238,9 +238,14 @@
                 svg.selectAll(".profilecircle").attr("transform", function(d) {
                   return "rotate(" +  time*360/audio_duration + ")";
                 });
-                var topicname = d.topicName.split(" ")[0];
-                $("#"+topicname).clone().appendTo("body");
-                d3.selectAll("#"+topicname).transition().attr("x","0").attr("y","0").transition().attr("display","none");
+                var topicname_rect = d.topicName.split(" ")[0]+'rect';
+                var topicname_text = d.topicName.split(" ")[0]+'text';
+                var old_x_rect = d3.selectAll("#"+topicname_rect).attr("x")
+                var old_y_rect = d3.selectAll("#"+topicname_rect).attr("y")
+                var old_x_text = d3.selectAll("#"+topicname_text).attr("x")
+                var old_y_text = d3.selectAll("#"+topicname_text).attr("y")
+                d3.selectAll("#"+topicname_rect).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_rect).attr("y",old_y_rect);
+                d3.selectAll("#"+topicname_text).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_text).attr("y",old_y_text);
 
                 var keywordsContent = d.keywords
 
@@ -255,7 +260,7 @@
                     .attr("cx",function(d,i){return gen_x(i,circle_r)})
                     .attr("cy", function(d,i){return gen_y(i,circle_r)})
                     .attr("class", "innercircle")
-                    .attr("fill",d3.selectAll("#"+topicname).style('fill'))
+                    .attr("fill",d3.selectAll("#"+topicname_rect).style('fill'))
                     .attr("opacity",0)
                     .transition()
                     .duration(1300)
@@ -286,8 +291,14 @@
                     svg.selectAll(".profilecircle").attr("transform", function(d) {
                       return "rotate(" +  time*360/audio_duration + ")";
                     });
-                    var topicname = d.data.topicName.split(" ")[0];
-                    d3.selectAll("#"+topicname).transition().attr("x","0").attr("y","0").transition().attr("display","none");
+                    var topicname_rect = d.data.topicName.split(" ")[0]+'rect';
+                    var topicname_text = d.data.topicName.split(" ")[0]+'text';
+                    var old_x_rect = d3.selectAll("#"+topicname_rect).attr("x")
+                    var old_y_rect = d3.selectAll("#"+topicname_rect).attr("y")
+                    var old_x_text = d3.selectAll("#"+topicname_text).attr("x")
+                    var old_y_text = d3.selectAll("#"+topicname_text).attr("y")
+                    d3.selectAll("#"+topicname_rect).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_rect).attr("y",old_y_rect);
+                    d3.selectAll("#"+topicname_text).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_text).attr("y",old_y_text);
 
                     var keywordsContent = d.data.keywords
 
@@ -302,7 +313,7 @@
                         .attr("cx",function(d,i){return gen_x(i,circle_r)})
                         .attr("cy", function(d,i){return gen_y(i,circle_r)})
                         .attr("class", "innercircle")
-                        .attr("fill",d3.selectAll("#"+topicname).style('fill'))
+                        .attr("fill",d3.selectAll("#"+topicname_rect).style('fill'))
                         .attr("opacity",0)
                         .transition()
                         .duration(1300)
