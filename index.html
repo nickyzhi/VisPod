@@ -184,17 +184,10 @@
                         .attr("class", "rect")
                         .attr("id", function(d) { return d.topicName.split(" ")[0]; })
                         .attr("class", "draggroup")
-<<<<<<< HEAD
-                        .on("click", function(d){
-                            rectClickFunction(d);
-                        });;
-=======
                         .style("margin-left","20px")
                         .on("click", function(d){
                             rectClickFunction(d);
-                        });                        
-
->>>>>>> a8f3b465bf690710cab2e02746c328715d6d064c
+                        });
                     var rectText = group.append("text")
                         .text(function(d) { return d.topicName; })
                         .attr("text-anchor", "middle")
@@ -208,11 +201,7 @@
                         .attr("class", "draggroup")
                         .on("click", function(d){
                             rectClickFunction(d);
-<<<<<<< HEAD
-                        });;
-=======
                         });
->>>>>>> a8f3b465bf690710cab2e02746c328715d6d064c
                 }else{
                     var rect = group.append("rect")
                         .attr("x",  -radius-inner_padding-300)
@@ -231,11 +220,7 @@
                         .attr("text-anchor", "middle")
                         .attr("x", -radius-inner_padding-205)
                         .attr("y", function(d,i) { return i*60-radius+100; })
-<<<<<<< HEAD
-                        .attr("font-size", "14px")
-=======
                         .attr("font-size", "15px")
->>>>>>> a8f3b465bf690710cab2e02746c328715d6d064c
                         .attr("fill", "black")
                         .style("margin-left","50px")
                         .attr("class", "text")
@@ -243,14 +228,8 @@
                         .attr("class", "draggroup")
                         .on("click", function(d){
                             rectClickFunction(d);
-<<<<<<< HEAD
-                        });;
-                }
-=======
                         });
                 }
-                
->>>>>>> a8f3b465bf690710cab2e02746c328715d6d064c
             var rectClickFunction = function(d){
                 $(".innercircle").css("display","none");
                 var time = ParseTime(d.startTime);
@@ -296,10 +275,7 @@
                     .duration(1300)
                     .attr("opacity",0.8);
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> a8f3b465bf690710cab2e02746c328715d6d064c
 
             g.on("click", function(d) {
                     $(".innercircle").css("display","none");
