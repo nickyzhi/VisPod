@@ -92,10 +92,20 @@
                     .duration(200)      
                     .style("opacity", .8);      
                 profile_tooltip
-                    .html("<a href='theshawnstevensonmodel.com'>" + images.attr('id') + "</a>")  
+                    .html(images.attr('id') + "</a>")  
                     .style("left", (d3.event.pageX + 50) + "px")     
                     .style("top", (d3.event.pageY - 30) + "px") 
-            })                  
+            })
+            .on("mousemove", function(d){
+                profile_tooltip
+                    .transition()
+                    .duration(200)      
+                    .style("opacity", .8);      
+                profile_tooltip
+                    .html(images.attr('id') + "</a>")  
+                    .style("left", (d3.event.pageX + 50) + "px")     
+                    .style("top", (d3.event.pageY - 30) + "px") 
+            })                     
             .on("mouseout", function(d) {       
                     profile_tooltip
                     .transition()        
@@ -103,9 +113,6 @@
                     .style("opacity", 0);   
 
             })
-            .on("click", function(){
-                window.open('http://www.theshawnstevensonmodel.com')
-            });
 
         $(".playpause").click(function () {
             //click to play
@@ -205,6 +212,12 @@
                         .on("click", function(d){
                             rectClickFunction(d);
                         });
+
+                        $('.profilecircle').bind('touchstart', function(){
+                            $('body').bind('touchmove', function(e){
+                                rotateAnnotationCropper($('#content'), e.originalEvent.touches[0].pageX,e.originalEvent.touches[0].pageY, $('.profilecircle'));
+                            });                
+                        });
                 }else{
                     var rect = group.append("rect")
                         .attr("x",  -radius-inner_padding-100)
@@ -232,6 +245,7 @@
                         .on("click", function(d){
                             topicClickFunction(d);
                         });
+
                 }
 
             //draw inner circle
@@ -304,6 +318,14 @@
                 $("p").text(sentenceContent[sentence_index]);
 
                 
+            });
+
+            //drag profile circle
+            $('.profilecircle').on('mousedown', function(){
+                $('body').on('mousemove', function(event){
+                        rotateAnnotationCropper($('#content'), event.pageX,event.pageY, $('.profilecircle'));
+
+                    });                
             });
 
         });
