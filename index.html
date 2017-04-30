@@ -13,7 +13,7 @@
     <body>
         <div id = "vispod">
             <img class = "logo" alt = "logo" src="pictures/logo.png" />
-            <h2>The Model Health Show with Shawn Stevenson #80</h2>
+            <h2>The Model Health Show with Shawn Stevenson #80 (Duration: 15m 14s)</h2>
             <div id = "content">
             </div>
             <div id = "playbutton">
@@ -173,6 +173,9 @@
 
             // var draggroup = group.call(drag);
 
+            g.on("click", function(d) {
+                    topicClickFunction(d.data)
+                })
 
             if (typeof window.orientation !== 'undefined') {
                     var rect = group.append("rect")
@@ -213,7 +216,7 @@
                         .attr("id", function(d) { return d.topicName.split(" ")[0]+'rect'; })
                         .attr("class", "draggroup")
                         .on("click", function(d){
-                            rectClickFunction(d);
+                            topicClickFunction(d);
                         });
                     var rectText = group.append("text")
                         .text(function(d) { return d.topicName; })
@@ -227,26 +230,34 @@
                         .attr("id", function(d) { return d.topicName.split(" ")[0]+'text'; })
                         .attr("class", "draggroup")
                         .on("click", function(d){
-                            rectClickFunction(d);
+                            topicClickFunction(d);
                         });
                 }
-            var rectClickFunction = function(d){
-                $(".innercircle").css("display","none");
+
+            //draw inner circle
+            var topicClickFunction = function(d){
+                d3.selectAll("rect").attr("opacity","1");
+                d3.selectAll("text").style("font-Weight","")
+                svg.selectAll(".innercircle").remove();
                 var time = ParseTime(d.startTime);
                 var audio_duration = document.getElementById("bgm").duration;
                 document.getElementById("bgm").currentTime = time;
                 svg.selectAll(".profilecircle").attr("transform", function(d) {
                   return "rotate(" +  time*360/audio_duration + ")";
                 });
+                //record all attributes
                 var topicname_rect = d.topicName.split(" ")[0]+'rect';
                 var topicname_text = d.topicName.split(" ")[0]+'text';
                 var old_x_rect = d3.selectAll("#"+topicname_rect).attr("x")
                 var old_y_rect = d3.selectAll("#"+topicname_rect).attr("y")
+                var old_color_rect = d3.selectAll("#"+topicname_rect).attr("fill")
                 var old_x_text = d3.selectAll("#"+topicname_text).attr("x")
                 var old_y_text = d3.selectAll("#"+topicname_text).attr("y")
-                d3.selectAll("#"+topicname_rect).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_rect).attr("y",old_y_rect);
-                d3.selectAll("#"+topicname_text).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_text).attr("y",old_y_text);
-
+                var old_color_text = d3.selectAll("#"+topicname_rect).attr("fill")
+                //.attr("display","none")
+                d3.selectAll("#"+topicname_rect).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_rect).attr("y",old_y_rect).attr("opacity","0.2");
+                
+                d3.selectAll("#"+topicname_text).transition().attr("x","0").attr("y","0").transition().attr("x",old_x_text).attr("y",old_y_text).style("font-Weight","bold");
                 var keywordsContent = d.keywords
 
                 var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent)
@@ -256,11 +267,11 @@
 
                 var circle_r = 90;
                 var innerCircle = innerCircleEnter.append("circle")
-                    .attr("r", function(d){return d.keywordScore*radius/(10*7)})
+                    .attr("r", radius/6)
                     .attr("cx",function(d,i){return gen_x(i,circle_r)})
                     .attr("cy", function(d,i){return gen_y(i,circle_r)})
                     .attr("class", "innercircle")
-                    .attr("fill",d3.selectAll("#"+topicname_rect).style('fill'))
+                    .attr("fill", old_color_rect)
                     .attr("opacity",0)
                     .transition()
                     .duration(1300)
@@ -273,7 +284,7 @@
                     .attr("y", function(d,i){return gen_y(i,circle_r)})
                     .attr("font-family", "sans-serif")
                     .attr("class", "innercircle")
-                    .attr("font-size", function(d) { return d.keywordScore*radius/(200) + "px"; })
+                    .attr("font-size", "13px")
                     .attr("fill", "black")
                     .attr("opacity",0)
                     .transition()
@@ -281,64 +292,6 @@
                     .attr("opacity",0.8);
             }
 
-
-            g.on("click", function(d) {
-                    $(".innercircle").css("display","none");
-                    var time = ParseTime(d.data.startTime);
-                    console.log(d.data);
-                    var audio_duration = document.getElementById("bgm").duration;
-                    document.getElementById("bgm").currentTime = time;
-                    svg.selectAll(".profilecircle").attr("transform", function(d) {
-                      return "rotate(" +  time*360/audio_duration + ")";
-                    });
-                    var topicname_rect = d.data.topicName.split(" ")[0]+'rect';
-                    var topicname_text = d.data.topicName.split(" ")[0]+'text';
-                    var old_x_rect = d3.selectAll("#"+topicname_rect).attr("x")
-                    var old_y_rect = d3.selectAll("#"+topicname_rect).attr("y")
-                    var old_x_text = d3.selectAll("#"+topicname_text).attr("x")
-                    var old_y_text = d3.selectAll("#"+topicname_text).attr("y")
-                    d3.selectAll("#"+topicname_rect).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_rect).attr("y",old_y_rect);
-                    d3.selectAll("#"+topicname_text).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_text).attr("y",old_y_text);
-
-                    var keywordsContent = d.data.keywords
-
-                    var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent)
-                        .enter()
-                        .append("g")
-                        .attr("class", "innercircles");
-
-                    var circle_r = 90;
-                    var innerCircle = innerCircleEnter.append("circle")
-                        .attr("r", function(d){return d.keywordScore*radius/(10*7)})
-                        .attr("cx",function(d,i){return gen_x(i,circle_r)})
-                        .attr("cy", function(d,i){return gen_y(i,circle_r)})
-                        .attr("class", "innercircle")
-                        .attr("fill",d3.selectAll("#"+topicname_rect).style('fill'))
-                        .attr("opacity",0)
-                        .transition()
-                        .duration(1300)
-                        .attr("opacity",0.8);
-
-                    var innerText = innerCircleEnter.append("text")
-                        .text(function(d) { return d.keyword})
-                        .attr("text-anchor", "middle")
-                        .attr("x", function(d,i){return gen_x(i,circle_r)})
-                        .attr("y", function(d,i){return gen_y(i,circle_r)})
-                        .attr("font-family", "sans-serif")
-                        .attr("class", "innercircle")
-                        .attr("font-size", function(d) { return d.keywordScore*radius/(200) + "px"; })
-                        .attr("fill", "black")
-                        .attr("opacity",0)
-                        .transition()
-                        .duration(1300)
-                        .attr("opacity",0.8);
-
-
-                })
-            //replace eq in jquery with d3 function
-            d3.selection.prototype.eq = function(index) {  
-              return d3.select(this[0][index]);
-            }
             //console.log(d3.selectAll(".topic_rects").eq(1))
             //Update by d3 timer control
             d3.timer(function() {
