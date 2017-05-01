@@ -86,6 +86,7 @@
             .attr("height",function(d){return 2*d.r} )
             .attr("width", function(d){return 2*d.r} )
             .attr("class", "profilecircle")
+            .style("cursor","pointer")
             .on("mouseover", function(d){
                 profile_tooltip
                     .transition()
@@ -232,6 +233,7 @@
 
             g.append("path")
                 .attr("d", arc)
+                .style("cursor","pointer")
                 .style("fill", function(d) { return color(d.data.topicName); });
 
  
@@ -288,6 +290,7 @@
                         .attr("class", "rect")
                         .attr("id", function(d) { return d.topicName.split(" ")[0]+'rect'; })
                         .attr("class", "draggroup")
+                        .style("cursor","pointer")
                         .on("click", function(d){
                             topicClickFunction(d);
                         });
@@ -297,6 +300,7 @@
                         .attr("x", -radius-inner_padding-10)
                         .attr("y", function(d,i) { return i*60-radius+100; })
                         .attr("font-size", "15px")
+                        .style("cursor","pointer")
                         .attr("fill", "black")
                         .style("margin-left","50px")
                         .attr("class", "text")
