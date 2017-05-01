@@ -12,10 +12,20 @@ function rotateAnnotationCropper(offsetSelector, xCoordinate, yCoordinate, cropp
 
         var cssDegs = convertThetaToCssDegs(theta);
         var rotate = 'rotate(' +cssDegs + 'deg)';
+        var time_percentage = 0;
         cropper.css({'-moz-transform': rotate, 'transform' : rotate, '-webkit-transform': rotate, '-ms-transform': rotate});
-        
+        if (cssDegs < 0){
+            time_percentage = (360 + cssDegs)/360;
+        }
+        else{
+            time_percentage = cssDegs/360;
+        }
+
+
         $('body').on('mouseup', function(event){ $('body').unbind('mousemove')}); 
         $('body').on('touchend', function(event){ $('body').unbind('touchmove')}); 
+
+        return time_percentage;
 
 }
 
