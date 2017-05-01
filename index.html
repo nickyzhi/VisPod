@@ -113,6 +113,32 @@
                     .style("opacity", 0);   
 
             })
+        //Speaker Info
+        var speakers = svg.selectAll(".speakers")
+                         .data([{"sname":"Jade", "fullname":"Jade Harrell", "link":""},
+                                { "sname":"shawn", "fullname":"Shawn Stevenson", "link":""}
+                              ])
+                         .enter()
+                         .append("g")
+                         .attr("class", "speakers");
+        var speaker_box = speakers.append("image")
+                          .attr("xlink:href", function(d) { return "pictures/" + d['sname'] + ".png"})
+                          .attr("x", function(d,i) { return radius+70; })
+                          .attr("y", function(d,i) { return i * 50-230; })
+                          .attr("width", "30px")
+                          .attr("height", "30px")
+                          .attr("id", function(d) { return d['sname']+"_image"; })
+                          .attr("class", "speaker_box");
+
+        var speaker_text = speakers.append("text")
+                          .text(function(d) { return d['fullname']; })
+                          .attr("x", function(d,i) { return radius+180; })
+                          .attr("y", function(d,i) { return i * 50-210; })
+                          .attr("text-anchor", "middle")
+                          .attr("font-size", "16px")
+                          .attr("id", function(d) { return d['sname']+"_text"; })
+                          .attr("class", "speaker_text");
+
         // mobile devices add play at middle
         if (typeof window.orientation !== 'undefined'){
             d3.selectAll("#playbutton").style("height","100px")
@@ -377,12 +403,25 @@
             d3.timer(function() {
                 var currentTime = Math.floor(document.getElementById("bgm").currentTime);
                 var sentence_index = Search(sentenceTime,currentTime);
+                var currentSpeaker = sentenceSpeaker[sentence_index];
                 //update profile picture
-                images.attr("xlink:href",  "pictures/"+sentenceSpeaker[sentence_index]+".png")
-                      .attr("id", sentenceSpeaker[sentence_index]);
+                images.attr("xlink:href",  "pictures/"+currentSpeaker+".png")
+                      .attr("id", currentSpeaker);
                 //update transcript
                 $("p").text(sentenceContent[sentence_index]);
+                
+                //update side speaker profiles
+                $(".speaker_box")
+                    .attr("width", "30px")
+                    .attr("height", "30px");
+                $(".speaker_text")
+                    .css("font-weight", "")
 
+                $("#"+currentSpeaker + "_image")
+                    .attr("width", "50px")
+                    .attr("height", "50px");
+                $("#"+currentSpeaker + "_text")
+                    .css("font-weight", "bold")
                 
             });
         });
