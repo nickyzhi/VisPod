@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Lato:400,700,900|Lobster|Noto+Sans|Ubuntu');
+
 html,body {
     height: 100%;
 }
@@ -6,6 +8,17 @@ h2 {
     font-size: 20px;
     font-color: maroon;
     margin-right: 150px;
+    font-family: 'Lobster', cursive;
+}
+p{
+    font-family: 'Noto Sans', sans-serif;
+}
+.draggroup{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+.innercircle{
+    font-family: 'Ubuntu', sans-serif;
 }
 #vispod {
     position: relative;
@@ -29,26 +42,27 @@ h2 {
     display: inline-block;
     margin-top: 10px;
     padding: 0;
-    height: 40px;
-    width: 600px;
     overflow-x: auto;
     white-space: nowrap;
-    margin-right: -130px;
+    height :60px;
+    width :600px;
+     margin-right : -130px;
 }
 ::-webkit-scrollbar { 
     display: none; 
 }
 
 .playpause {
-    max-width: 70%;
-    max-height: 100%;
+    max-width: 30%;
+    max-height: 75%;
     float: left;
 }
 .sentenceContent{
-    text-align: left;
-    line-height: 0px;
-    font-size: 20px;
+    text-align : left ;
+    line-height : 0px;
+    font-size : 20px;
 }
+
 
 form {
   position: absolute;

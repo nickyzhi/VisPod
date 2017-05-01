@@ -16,9 +16,9 @@
             <h2>The Model Health Show with Shawn Stevenson #80 (Duration: 15m 14s)</h2>
             <div id = "content">
             </div>
-            <div id = "playbutton">
+            <div id = "playbutton" >
                 <img class="playpause"  src="pictures/play.ico" />
-                <p class="sentenceContent"> This podcast of The Model Health Show is presented to you by Shawn Stevenson. 
+                <p class="sentenceContent" > This podcast of The Model Health Show is presented to you by Shawn Stevenson. 
                 </p>
                 
             </div>          
@@ -113,9 +113,45 @@
                     .style("opacity", 0);   
 
             })
+        // mobile devices add play at middle
+        if (typeof window.orientation !== 'undefined'){
+            d3.selectAll("#playbutton").style("height","100px")
+            d3.selectAll("#playbutton").style("margin-right","-20px")
+            d3.selectAll("#playbutton").style("width","850px")
+            d3.selectAll(".sentenceContent").style("font-size","35px")
+            var centerPlayImage = svg.append("image")
+            .attr("xlink:href",  "pictures/play.ico")
+            .attr("x", -radius/2)
+            .attr("y", -radius/2)
+            .attr("height", radius)
+            .attr("width", radius)
+            .attr("opacity", "0.1")
+            .attr("class", "centerPlayPause");
+
+            centerPlayImage.on("click",function(){
+                if (bgm.paused){
+                        bgmPlay();
+                        $(this).attr("href","pictures/pause.ico");
+                        var audio_duration = document.getElementById("bgm").duration;
+                        d3.timer(function() {
+                            var currentTime = Math.floor(document.getElementById("bgm").currentTime);
+                            //360 degree corresponding to the total duration time of audio
+                            svg.selectAll(".profilecircle").attr("transform", function(d) {
+                              return "rotate(" +  currentTime*360/audio_duration + ")";
+                            });
+                        });
+                        
+                    }
+                    //click to pause
+                    else{
+                        bgmPause();
+                        $(this).attr("href", "pictures/play.ico");
+                    }
+            })
+        }
+
 
         $(".playpause").click(function () {
-            //click to play
             if (bgm.paused){
                 bgmPlay();
                 this.src = "pictures/pause.ico";
@@ -197,21 +233,21 @@
                         .attr("class", "draggroup")
                         .style("margin-left","20px")
                         .on("click", function(d){
-                            rectClickFunction(d);
+                            topicClickFunction(d);
                         });
                     var rectText = group.append("text")
                         .text(function(d) { return d.topicName; })
                         .attr("text-anchor", "middle")
                         .attr("x", function(d,i) { return i*140-radius+140; })
                         .attr("y", -radius - 1.5 * circlesData[0].r + 30)
-                        .attr("font-size", "12px")
+                        .attr("font-size", "15px")
                         .attr("fill", "black")
                         .style("margin-left","20px")
                         .attr("class", "text")
                         .attr("id", function(d) { return d.topicName.split(" ")[0]+'text'; })
                         .attr("class", "draggroup")
                         .on("click", function(d){
-                            rectClickFunction(d);
+                            topicClickFunction(d);
                         });
 
                 }
@@ -269,7 +305,7 @@
                 //.attr("display","none")
                 d3.selectAll("#"+topicname_rect).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_rect).attr("y",old_y_rect).attr("opacity","0.2");
                 
-                d3.selectAll("#"+topicname_text).transition().attr("x","0").attr("y","0").transition().attr("x",old_x_text).attr("y",old_y_text).style("font-Weight","bold");
+                d3.selectAll("#"+topicname_text).transition().attr("x","0").attr("y","0").transition().attr("x",old_x_text).attr("y",old_y_text).style("font-Weight","900");
                 var keywordsContent = d.keywords
 
                 var innerCircleEnter = svg.selectAll("innercircle").data(keywordsContent)
@@ -277,7 +313,7 @@
                     .append("g")
                     .attr("class", "innercircles");
 
-                var circle_r = 90;
+                var circle_r = radius/3;
                 var innerCircle = innerCircleEnter.append("circle")
                     .attr("r", radius/6)
                     .attr("cx",function(d,i){return gen_x(i,circle_r)})
@@ -294,14 +330,17 @@
                     .attr("text-anchor", "middle")
                     .attr("x", function(d,i){return gen_x(i,circle_r)})
                     .attr("y", function(d,i){return gen_y(i,circle_r)})
-                    .attr("font-family", "sans-serif")
                     .attr("class", "innercircle")
-                    .attr("font-size", "13px")
                     .attr("fill", "black")
                     .attr("opacity",0)
                     .transition()
                     .duration(1300)
                     .attr("opacity",0.8);
+                if (typeof window.orientation !== 'undefined'){
+                    innerText.attr("font-size", "25px")
+                }else{
+                    innerText.attr("font-size", "14px")
+                }
             }
             //drag profile circle
             var time_percentage = 0
@@ -346,9 +385,6 @@
 
                 
             });
-
-
-
         });
 
 

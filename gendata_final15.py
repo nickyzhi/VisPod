@@ -400,7 +400,7 @@ with open('dataset.json', 'w') as output:
             "sentenceContent": "It makes my day every single time I open those up ",
             "sentenceSpeaker": "shawn"
         }]
-    data[0]["keywords"] = [{},{},{},{},{},{}]
+    data[0]["keywords"] = [{},{},{},{},{}]
     data[0]["keywords"][0]["keywordScore"] = "9"
     data[0]["keywords"][0]["keyword"] = "onnit.com"
     data[0]["keywords"][1]["keywordScore"] = "3"
@@ -408,11 +408,9 @@ with open('dataset.json', 'w') as output:
     data[0]["keywords"][2]["keywordScore"] = "9"
     data[0]["keywords"][2]["keyword"] = "Testosterone"
     data[0]["keywords"][3]["keywordScore"] = "5"
-    data[0]["keywords"][3]["keyword"] = "audience"
-    data[0]["keywords"][4]["keywordScore"] = "9"
-    data[0]["keywords"][4]["keyword"] = "reviews"
-    data[0]["keywords"][5]["keywordScore"] = "10"
-    data[0]["keywords"][5]["keyword"] = "Opening & AD"
+    data[0]["keywords"][3]["keyword"] = "audience reviews"
+    data[0]["keywords"][4]["keywordScore"] = "10"
+    data[0]["keywords"][4]["keyword"] = "fantastonishing"
 
 
     data[1]["topicName"]= "What is Testosterone"
@@ -643,17 +641,17 @@ with open('dataset.json', 'w') as output:
 
     data[1]["keywords"] = [{},{},{},{},{},{}]
     data[1]["keywords"][0]["keywordScore"] = "4"
-    data[1]["keywords"][0]["keyword"] = "fundamental"
+    data[1]["keywords"][0]["keyword"] = "Physical Strength"
     data[1]["keywords"][1]["keywordScore"] = "8"
-    data[1]["keywords"][1]["keyword"] = "hormone"
+    data[1]["keywords"][1]["keyword"] = "Male Hermones"
     data[1]["keywords"][2]["keywordScore"] = "5"
     data[1]["keywords"][2]["keyword"] = "genetic"
     data[1]["keywords"][3]["keywordScore"] = "7"
     data[1]["keywords"][3]["keyword"] = "health"
     data[1]["keywords"][4]["keywordScore"] = "3"
-    data[1]["keywords"][4]["keyword"] = "sex"
+    data[1]["keywords"][4]["keyword"] = "Affect Longevity"
     data[1]["keywords"][5]["keywordScore"] = "10"
-    data[1]["keywords"][5]["keyword"] = "Testosterone"
+    data[1]["keywords"][5]["keyword"] = "Sets Template"
 
     data[2]["topicName"]= "Testosterone Impact"
     data[2]["topicDuration"]= "114"
@@ -797,17 +795,17 @@ with open('dataset.json', 'w') as output:
     data[2]["keywords"][0]["keywordScore"] = "8"
     data[2]["keywords"][0]["keyword"] = "creativity"
     data[2]["keywords"][1]["keywordScore"] = "8"
-    data[2]["keywords"][1]["keyword"] = "intellect"
+    data[2]["keywords"][1]["keyword"] = "Bone Density"
     data[2]["keywords"][2]["keywordScore"] = "8"
-    data[2]["keywords"][2]["keyword"] = "cognitive"
+    data[2]["keywords"][2]["keyword"] = "Brain Health"
     data[2]["keywords"][3]["keywordScore"] = "8"
     data[2]["keywords"][3]["keyword"] = "physical energy"
     data[2]["keywords"][4]["keywordScore"] = "4"
-    data[2]["keywords"][4]["keyword"] = "nbiochemical"
+    data[2]["keywords"][4]["keyword"] = "biochemical"
     data[2]["keywords"][5]["keywordScore"] = "9"
-    data[2]["keywords"][5]["keyword"] = "testosterone"
+    data[2]["keywords"][5]["keyword"] = "Protein Synthesis"
     data[2]["keywords"][6]["keywordScore"] = "10"
-    data[2]["keywords"][6]["keyword"] = "Impact"
+    data[2]["keywords"][6]["keyword"] = "Muscle Mass"
 
     data[3]["topicName"]= "Low Testosterone Impact"
     data[3]["topicDuration"]= "68"
@@ -884,17 +882,19 @@ with open('dataset.json', 'w') as output:
             "sentenceContent": "is that you’ll have a greater risk of cancer when testosterone levels are low.",
             "sentenceSpeaker": "shawn"
         }]
-    data[3]["keywords"] = [{},{},{},{},{}]
+    data[3]["keywords"] = [{},{},{},{},{},{}]
     data[3]["keywords"][0]["keywordScore"] = "8"
     data[3]["keywords"][0]["keyword"] = "blood pressure"
     data[3]["keywords"][1]["keywordScore"] = "8"
-    data[3]["keywords"][1]["keyword"] = "obese"
+    data[3]["keywords"][1]["keyword"] = "Obesity"
     data[3]["keywords"][2]["keywordScore"] = "8"
     data[3]["keywords"][2]["keyword"] = "osteoporosis"
     data[3]["keywords"][3]["keywordScore"] = "5"
-    data[3]["keywords"][3]["keyword"] = "athletic"
+    data[3]["keywords"][3]["keyword"] = "Heart Disease"
     data[3]["keywords"][4]["keywordScore"] = "10"
-    data[3]["keywords"][4]["keyword"] = "testosterone"
+    data[3]["keywords"][4]["keyword"] = "Muscle Growth"
+    data[3]["keywords"][5]["keywordScore"] = "10"
+    data[3]["keywords"][5]["keyword"] = "Infertility"
 
     data[4]["topicName"]= "Lowering testosterone"
     data[4]["topicDuration"]= "170"
@@ -1099,17 +1099,17 @@ with open('dataset.json', 'w') as output:
         }]
     data[4]["keywords"] = [{},{},{},{},{},{}]
     data[4]["keywords"][0]["keywordScore"] = "8"
-    data[4]["keywords"][0]["keyword"] = "physical"
+    data[4]["keywords"][0]["keyword"] = "Physical Trauma"
     data[4]["keywords"][1]["keywordScore"] = "8"
     data[4]["keywords"][1]["keyword"] = "testicles"
     data[4]["keywords"][2]["keywordScore"] = "8"
-    data[4]["keywords"][2]["keyword"] = "protect"
+    data[4]["keywords"][2]["keyword"] = "Surgery"
     data[4]["keywords"][3]["keywordScore"] = "8"
     data[4]["keywords"][3]["keyword"] = "radiation"
     data[4]["keywords"][4]["keywordScore"] = "6"
     data[4]["keywords"][4]["keyword"] = "Vasectomy"
     data[4]["keywords"][5]["keywordScore"] = "10"
-    data[4]["keywords"][5]["keyword"] = "Lower"
+    data[4]["keywords"][5]["keyword"] = "Chemo"
 
     data[5]["topicName"]= "Boost Testosterone"
     data[5]["topicDuration"]= "87"
@@ -1218,17 +1218,15 @@ with open('dataset.json', 'w') as output:
             "sentenceContent": "related to our testosterone. But there is not really much data to back that up.",
             "sentenceSpeaker": "shawn"
         }]
-    data[5]["keywords"] = [{},{},{},{},{}]
+    data[5]["keywords"] = [{},{},{},{}]
     data[5]["keywords"][0]["keywordScore"] = "8"
     data[5]["keywords"][0]["keyword"] = "sunlight"
     data[5]["keywords"][1]["keywordScore"] = "8"
-    data[5]["keywords"][1]["keyword"] = "lifting"
+    data[5]["keywords"][1]["keyword"] = "Heavy Lifting"
     data[5]["keywords"][2]["keywordScore"] = "8"
     data[5]["keywords"][2]["keyword"] = "sex"
     data[5]["keywords"][3]["keywordScore"] = "6"
     data[5]["keywords"][3]["keyword"] = "Orgasm"
-    data[5]["keywords"][4]["keywordScore"] = "10"
-    data[5]["keywords"][4]["keyword"] = "boost"
 
     
 
