@@ -1,10 +1,10 @@
 # VisPod
-# Shuai He, Qiyu Zhi
+## [Shuai He](http://www3.nd.edu/~she1/), [Qiyu Zhi](http://www3.nd.edu/~qzhi/)
 
-Podcast Player Web application utilizing d3.js, JQuery
-The donut chart represents podcast time, rectangles represent podcast topics, and the circles represent topics.
+[Detailed Report](http://www3.nd.edu/~qzhi/vispod/)
 
-Data is read in JSON format. Real data from "Model Health Show" is used for demonstration purpose.
+[Demo](http://www3.nd.edu/~qzhi/vispod/demo)
+
 
 
 
