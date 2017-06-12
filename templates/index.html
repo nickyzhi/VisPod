@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>VisPod</title>
+        <link href="{{ url_for('static', filename='css/test.css')}}" rel="stylesheet" type="text/css">
+        
+    </head>
+
+    <body>
+        <audio id="bgm" loop><source src="{{audioPath}}"/></audio>
+        <div id = "vispod">
+            <img class = "logo" alt = "logo" src="{{ url_for('static', filename='pictures/logo.png')}}" />
+            <h2>The Model Health Show with Shawn Stevenson #80 (Duration: 15m 14s)</h2>
+            <div id = "content">
+            </div>
+            <div id = "playbutton" >
+                <img class="playpause"  src="{{ url_for('static', filename='pictures/play.ico')}}" />
+                <p class="sentenceContent" > This podcast of The Model Health Show is presented to you by Shawn Stevenson. 
+                </p>
+                
+            </div>   
+        </div>
+    </body>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/d3.min.js')}}" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/functions.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/d3.layout.cloud.js')}}"></script>
+    
+    <script>function returnData(vars) {return vars}
+    data = returnData({{data|safe}})
+    audio_duration = document.getElementById("bgm").duration
+    JadePicturePath = "{{ url_for('static', filename='pictures/Jade.png')}}"
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+</html>
+
