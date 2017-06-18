@@ -133,17 +133,17 @@ var speaker_box = speakers.append("image")
     .attr("xlink:href", function(d) { return "../static/pictures/" + d['sname'] + ".png"})
     .attr("x", function(d,i) { return radius+70; })
     .attr("y", function(d,i) { return i * 50-230; })
-    .attr("width", "30px")
-    .attr("height", "30px")
+    .attr("width", "40px")
+    .attr("height", "40px")
     .attr("id", function(d) { return d['sname']+"_image"; })
     .attr("class", "speaker_box");
 
 var speaker_text = speakers.append("text")
     .text(function(d) { return d['fullname']; })
-    .attr("x", function(d,i) { return radius+180; })
-    .attr("y", function(d,i) { return i * 50-210; })
+    .attr("x", function(d,i) { return radius+240; })
+    .attr("y", function(d,i) { return i * 50-200; })
     .attr("text-anchor", "middle")
-    .attr("font-size", "16px")
+    .attr("font-size", "24px")
     .attr("id", function(d) { return d['sname']+"_text"; })
     .attr("class", "speaker_text");
 
@@ -248,7 +248,7 @@ g.on("click", function(d) {
                         .attr("height", 50)
                         .attr("fill", function(d) { return color(d.topicName); })
                         .attr("class", "rect")
-                        .attr("id", function(d) { return d.topicName.split(" ")[0]+'rect'; })
+                        .attr("id", function(d) { return d.topicName.replace(/ /g,'')+'rect'; })
                         .attr("class", "draggroup")
                         .style("cursor","pointer")
                         .on("click", function(d){
@@ -264,7 +264,7 @@ g.on("click", function(d) {
                         .attr("fill", "black")
                         .style("margin-left","50px")
                         .attr("class", "text")
-                        .attr("id", function(d) { return d.topicName.split(" ")[0]+'text'; })
+                        .attr("id", function(d) { return d.topicName.replace(/ /g,'')+'text'; })
                         .attr("class", "draggroup")
                         .on("click", function(d){
                             topicClickFunction(d);
@@ -285,8 +285,8 @@ console.log(data)
                 });
 
                 //record all attributes
-                var topicname_rect = d.topicName.split(" ")[0]+'rect';
-                var topicname_text = d.topicName.split(" ")[0]+'text';
+                var topicname_rect = d.topicName.replace(/ /g,'')+'rect';
+                var topicname_text = d.topicName.replace(/ /g,'')+'text';
                 var old_x_rect = d3.selectAll("#"+topicname_rect).attr("x")
                 var old_y_rect = d3.selectAll("#"+topicname_rect).attr("y")
                 var old_color_rect = d3.selectAll("#"+topicname_rect).attr("fill")
@@ -295,9 +295,9 @@ console.log(data)
                 var old_color_text = d3.selectAll("#"+topicname_rect).attr("fill")
                 //.attr("display","none")
 
-                d3.selectAll("#"+topicname_rect).transition().attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_rect).attr("y",old_y_rect).attr("opacity","0.2");
+                d3.selectAll("#"+topicname_rect).transition().duration(500).attr("x","0").attr("y","0").transition().delay(0).attr("x",old_x_rect).attr("y",old_y_rect).attr("opacity","0.2");
                 
-                d3.selectAll("#"+topicname_text).transition().attr("x","0").attr("y","0").transition().attr("x",old_x_text).attr("y",old_y_text).style("font-Weight","900");
+                d3.selectAll("#"+topicname_text).transition().duration(500).attr("x","0").attr("y","0").transition().attr("x",old_x_text).attr("y",old_y_text).style("font-Weight","900");
                 var keywordsContent = d.keywords
                 var fill = d3.scale.category20();
                 var keywordSizeScale = d3.scale.linear()
@@ -407,14 +407,14 @@ console.log(data)
                     
                     //update side speaker profiles
                     $(".speaker_box")
-                        .attr("width", "30px")
-                        .attr("height", "30px");
+                        .attr("width", "40px")
+                        .attr("height", "40px");
                     $(".speaker_text")
                         .css("font-weight", "")
 
                     $("#"+currentSpeaker + "_image")
-                        .attr("width", "50px")
-                        .attr("height", "50px");
+                        .attr("width", "60px")
+                        .attr("height", "60px");
                     $("#"+currentSpeaker + "_text")
                         .css("font-weight", "bold")
                     }

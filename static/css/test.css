@@ -8,7 +8,7 @@ h2 {
     font-size: 20px;
     font-color: maroon;
     margin-right: 150px;
-    font-family: 'Lobster', cursive;
+    font-family: 'Lato';
 }
 p{
     font-family: 'Noto Sans', sans-serif;
@@ -33,8 +33,8 @@ p{
 #content {
     position: relative;
     margin: 0;
-    padding: 0; 
-    height: 75%;
+    padding-top: -5px; 
+    height: 60%;
     text-align: center;
 }
 

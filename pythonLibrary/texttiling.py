@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import nltk
 from nltk.tokenize.texttiling import TextTilingTokenizer
 from nltk.corpus import brown
 from nltk.corpus import stopwords
@@ -115,17 +115,20 @@ def tfidf(groupContent):
     for i in range(len(weight)):#打印每类文本的tf-idf词语权重，第一个for遍历所有文本，第二个for便利某一类文本下的词语权重  
         topicKeywordsList.append([])
         print "doc",i,"tfidf--------------------------------------"  
+        print "keywords extracted ----------------------"
         sortedArray = np.argsort(weight[i])
         topWords = []
-        topArray = sortedArray[700:]
+        topArray = sortedArray[680:]
         for k in range(len(topArray)):
             if word[topArray[k]] not in stop:
                 topWords.append([word[topArray[k]],weight[i][topArray[k]]])
                 groupKeywordDict = {}
                 groupKeywordDict["keyword"] = word[topArray[k]]
                 groupKeywordDict["keywordScore"] = weight[i][topArray[k]]
-                topicKeywordsList[i].append(groupKeywordDict)
-        print topWords
+                text = nltk.word_tokenize(word[topArray[k]])
+                if (nltk.pos_tag(text)[0][1] != 'VBN') and (nltk.pos_tag(text)[0][1] != 'VBG') and (nltk.pos_tag(text)[0][1] != 'IN') and (nltk.pos_tag(text)[0][1] != 'VBZ') and (nltk.pos_tag(text)[0][1] != 'RB') and (nltk.pos_tag(text)[0][1] != 'VB'):
+                    print nltk.pos_tag(text)
+                    topicKeywordsList[i].append(groupKeywordDict)
     return topicKeywordsList
 
 
@@ -179,7 +182,17 @@ def return_json_data(dataset,groupSentenceIndexArray,topicKeywordsList):
                 data[i]["sentences"][index]["sentenceSpeaker"] = dataset[groupSentenceIndexArray[i][j]][0]
                 index += 1
         data[i]["keywords"] = topicKeywordsList[i]
-        data[i]["topicName"] = topicKeywordsList[i][-2]["keyword"] + " "+ topicKeywordsList[i][-1]["keyword"] 
+        topicWordList = []
+        for k, e in reversed(list(enumerate(topicKeywordsList[i]))):
+
+            text = nltk.word_tokenize(e["keyword"])
+            if (nltk.pos_tag(text)[0][1] != 'VERB') and (nltk.pos_tag(text)[0][1] != 'VBG'):
+                topicWordList.append(nltk.pos_tag(text)[0][0])
+            if len(topicWordList) == 2:
+                break
+        print "topic name--------------------"
+        print topicWordList
+        data[i]["topicName"] = topicWordList[0] + " and "+ topicWordList[1]
     return data
 
 def time_format(str):
@@ -205,9 +218,8 @@ if __name__ == "__main__":
     segmented_text = texttiling(text)
     #lda_extract_topics(segmented_text,5)
     groupSentenceIndexArray = sentences_grouped_by_topic(segmented_text,dataset)
-    keywordsList = extract_words(0,segmented_text)#0 is phrase, 2 is word
-    #data = return_json_data(dataset,groupSentenceIndexArray,keywordsList)
-    print keywordsList
+    keywordsList = extract_words(2,segmented_text)#0 is phrase, 2 is word
+    data = return_json_data(dataset,groupSentenceIndexArray,keywordsList)
 
 
 
